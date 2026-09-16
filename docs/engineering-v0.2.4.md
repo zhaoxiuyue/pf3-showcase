@@ -21,6 +21,8 @@ The manifest checker is read-only. Intentional source changes require a delibera
 
 Checks were also exercised in a temporary source-archive copy without `.git`. An invalid schema message, a schema-valid but inconsistent trace, a same-length file edit and an unlisted file were each rejected by the corresponding checker; the restored copy passed.
 
+The first Windows CI run exposed checkout line-ending conversion: a 952-byte workflow became 988 bytes through LF-to-CRLF conversion. This was reproduced with `core.autocrlf=true`. The repository's `.gitattributes` now requests LF for text checkouts on every platform, while the manifest checker continues to compare exact file bytes.
+
 ## Environments and release gate
 
 Local validation uses official **Node v24.21.0** on macOS arm64. The downloaded archive was checked against the [official SHA256 list](https://nodejs.org/dist/v24.21.0/SHASUMS256.txt). The minimum declared Node major remains 24.

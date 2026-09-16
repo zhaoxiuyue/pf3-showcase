@@ -1,0 +1,2 @@
+# Keep text bytes reproducible for EXPORT-MANIFEST on every checkout platform.
+* text=auto eol=lf

@@ -5,6 +5,11 @@
   "scope": "Independent protocol, reference example, contract tests and synthetic evidence; no complete PF3 implementation, private data or original Git history.",
   "files": [
     {
+      "path": ".gitattributes",
+      "bytes": 98,
+      "sha256": "0f50203c9ae31609679be58286208056b6b54de3955125bbeeed543c304fd336"
+    },
+    {
       "path": ".github/workflows/ci.yml",
       "bytes": 952,
       "sha256": "aba00e48561f9aa183631f8ef6a7a6ab6514257dbeb02b0d8c7922225a164377"
@@ -71,8 +76,8 @@
     },
     {
       "path": "docs/engineering-v0.2.4.md",
-      "bytes": 3092,
-      "sha256": "135d0f8c0aa861c47d6e0a413ed2d47b3276513cfe9ae79fe4534114e83cdd62"
+      "bytes": 3428,
+      "sha256": "223c14461d4d8e59c6c2d4c982d61fcebb257aa6fc9adfc050ef79dfe83486e2"
     },
     {
       "path": "docs/evidence.md",
