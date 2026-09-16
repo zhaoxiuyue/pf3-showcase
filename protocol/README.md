@@ -2,7 +2,7 @@
 
 [中文](README.zh-CN.md) · [Showcase overview](../README.md)
 
-This protocol defines a small versioned handoff for a summary and a next step. It extracts a narrow contract from PF3's collaboration problem for independent implementation and discussion. **It is not the complete PF3 tool API and does not promise direct compatibility with the private PF3 service.**
+This protocol defines a small versioned handoff for a summary and a next step. It extracts a narrow contract from PF3's collaboration problem for independent implementation and discussion. See the [repository scope](../README.md#scope-and-evidence) for how it relates to the complete PF3 project model.
 
 ## Objects and operations
 
@@ -48,9 +48,9 @@ Passing the suite is evidence only for the cases it runs. It does not establish 
 
 ## Versions and examples
 
-**Showcase 0.2.2** and **PF3 Handoff v0.1 draft** are separate versions. This patch strengthens contract assertions without changing the reference implementation, schema or behavioral contract. The [v0.2.2 audit](../docs/contract-audit-v0.2.2.md) maps all eight clauses to checks and records the bounded mutation audit.
+**Showcase 0.2.5** and **PF3 Handoff v0.1 draft** are separate versions. The [v0.2.2 audit](../docs/contract-audit-v0.2.2.md) maps all eight clauses to checks and records the bounded mutation audit; the [v0.2.3 control check](../docs/contract-audit-v0.2.3.md) adds acceptance of frozen detached outputs. The [v0.2.4 engineering record](../docs/engineering-v0.2.4.md) covers the CI matrix, schema/examples validation and manifest verification. The behavioral contract, reference semantics and schema remain unchanged.
 
-The schema `$id` is pinned to `https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json`. Later changes receive a new release tag and `$id`; published schema identities are not overwritten.
+The schema `$id` is pinned to `https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json`. Changes to this schema receive a new release tag and `$id`; published schema identities are not overwritten.
 
 Each of these files is one message that can be validated directly against the schema:
 

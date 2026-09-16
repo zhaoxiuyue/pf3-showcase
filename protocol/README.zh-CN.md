@@ -2,7 +2,7 @@
 
 [English](README.md) · [展示入口](../README.zh-CN.md)
 
-本协议定义一个摘要与下一步的版本交接闭环。它从 PF3 的协作问题中提取出一个小范围约定，供独立实现与讨论；**它不是完整 PF3 工具 API，不承诺与私有 PF3 服务直接兼容。**
+本协议定义一个摘要与下一步的版本交接闭环。它从 PF3 的协作问题中提取出一个小范围约定，供独立实现与讨论；它与完整 PF3 项目模型的关系见[仓库范围](../README.zh-CN.md#范围与证据)。
 
 ## 对象与动作
 
@@ -48,9 +48,9 @@ registerHandoffContractTests(createHandoff);
 
 ## 版本与示例
 
-**展示包 0.2.2** 与 **PF3 Handoff v0.1 draft** 是不同的版本。这个补丁补齐契约断言，没有改变参考实现、Schema 或行为约定。[v0.2.2 审计记录](../docs/contract-audit-v0.2.2.md)逐条对应八项约定的测试证据，并记录本轮限定范围的反例核验。
+**展示包 0.2.5** 与 **PF3 Handoff v0.1 draft** 是不同的版本。[v0.2.2 审计记录](../docs/contract-audit-v0.2.2.md)对应八项约定的测试证据与限定范围的反例核验；[v0.2.3 对照验证](../docs/contract-audit-v0.2.3.md)补充 frozen 独立返回值的合法实现；[v0.2.4 工程记录](../docs/engineering-v0.2.4.md)说明 CI 矩阵、Schema/示例与清单校验。行为约定、参考实现语义与 Schema 均保持不变。
 
-Schema 的 `$id` 固定为 `https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json`。后续修改使用新的发布标签与 `$id`，不覆盖已发布的 Schema 身份。
+Schema 的 `$id` 固定为 `https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json`。Schema 后续修改使用新的发布标签与 `$id`，不覆盖已发布的 Schema 身份。
 
 以下文件各自是一条可直接按 Schema 验证的消息：
 

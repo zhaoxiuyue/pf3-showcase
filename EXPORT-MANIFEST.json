@@ -1,8 +1,8 @@
 {
   "distribution": "pf3-showcase",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "protocol": "PF3 Handoff v0.1 draft",
-  "scope": "Independent protocol, reference example, contract tests and synthetic evidence; no complete PF3 implementation, private data or original Git history.",
+  "scope": "Conceptual design notes, independent protocol, reference example, contract tests and synthetic evidence; no complete PF3 implementation, private data or original Git history.",
   "files": [
     {
       "path": ".gitattributes",
@@ -21,8 +21,8 @@
     },
     {
       "path": "COLLABORATE.md",
-      "bytes": 5847,
-      "sha256": "a61cfc1da40eacef50a422f4fa720bbc53f0d71077fbe911f2ec81c26fe0b32b"
+      "bytes": 7277,
+      "sha256": "f308021f37b9202879f9ffbc20c8fd87afd6473a500cac05187c7ebd52d44ac1"
     },
     {
       "path": "LICENSE",
@@ -36,13 +36,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 5279,
-      "sha256": "ebd8db10d642a88a69cec57a09dd2231d097d843b64b924e71b37fb410904378"
+      "bytes": 5651,
+      "sha256": "b2514530bf2652bd8fccc5b029afbdbbabf5acb1b1c5b3b4c283d08cbace80b3"
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 5248,
-      "sha256": "0bfcf463f86133563d1e9a6bdd8cbfdc800e9e712811c4b8b7a4238cf76ba0a8"
+      "bytes": 5469,
+      "sha256": "260fbea9b251761dcfd10b3484167d93acb7a141be40b929fe1eb929c663a88d"
     },
     {
       "path": "conformance/handoff.mjs",
@@ -75,6 +75,16 @@
       "sha256": "2a57c784a914225e30bc4b4d1d6ae7b4dfb5b88b98c5be51bfc3295a155fe385"
     },
     {
+      "path": "docs/design.md",
+      "bytes": 5320,
+      "sha256": "c8781fe9131f395da05ec38cba069a5b2c415cc07517d8631ba0f13d3359dd17"
+    },
+    {
+      "path": "docs/design.zh-CN.md",
+      "bytes": 4727,
+      "sha256": "b833244bebfb9f718b511da1a5ceb26e258574d5b249192fdb22a270c6e43da9"
+    },
+    {
       "path": "docs/engineering-v0.2.4.md",
       "bytes": 3428,
       "sha256": "223c14461d4d8e59c6c2d4c982d61fcebb257aa6fc9adfc050ef79dfe83486e2"
@@ -90,6 +100,11 @@
       "sha256": "2b1f37b2b7a57a80b84ad063c486bee4a59e12a3c30f4d197a53d68305d7d946"
     },
     {
+      "path": "docs/roadmap.md",
+      "bytes": 1372,
+      "sha256": "101ed91b08385a01157e3a4fa0163d4a73dbd102de8ddb06119dcad672b604fe"
+    },
+    {
       "path": "docs/screenshots/cas-conflict.png",
       "bytes": 200739,
       "sha256": "d5b213982e6756066c39d9caa9c5178d3c25c854f1eb6cb98f883064834c7e8a"
@@ -102,22 +117,22 @@
     {
       "path": "package-lock.json",
       "bytes": 2515,
-      "sha256": "1b567b967ce2a87ad9389fce741ba421a773a76057a24d797a438be7e084c6b8"
+      "sha256": "dc265af8b3f346619db98752bff952d9ab148937015d4ec44bbc7c662d2aab6c"
     },
     {
       "path": "package.json",
       "bytes": 765,
-      "sha256": "0aab390ebc7e09649bd577f9c5464708b434bb7038b7933e6779a21fbccf2d36"
+      "sha256": "50daf84dbbbb57be0db1994e8b64481d5f4c448a5b6ac3df4f417f29a69e88d8"
     },
     {
       "path": "protocol/README.md",
-      "bytes": 5007,
-      "sha256": "88da91f6c15857471654a8b19e7ce577320fd40de45eac5a8fe2fefe4ea633a8"
+      "bytes": 5215,
+      "sha256": "acc79ed2f238170307eb45ed430e2646850b0412eddd73648eaf88834fec63a4"
     },
     {
       "path": "protocol/README.zh-CN.md",
-      "bytes": 4418,
-      "sha256": "971f88ac4efb05d2ea412acdb4059bc2d2d9c962934428bf58af835adf3d3a45"
+      "bytes": 4598,
+      "sha256": "bdd0df3b8c1a70a6d1bce12e165ea6f6901bc82bc3595fc32e9af4ce1acf47e8"
     },
     {
       "path": "protocol/examples/exchange-trace.json",

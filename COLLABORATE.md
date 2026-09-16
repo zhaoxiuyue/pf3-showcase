@@ -20,6 +20,12 @@
 
 进入合作讨论不等于获得完整内核源码。具体试用、接入、交付与源码范围按项目约定。
 
+## 从沟通到启动
+
+1. **首次沟通。** 说明当前流程、近期卡点、希望验证的结果和可分享的最小例子；工具、数据条件、期望时间与预算，已有多少先说明多少。这一步确认是否匹配，并约定书面范围与报价的回复日期。
+2. **书面范围与报价。** 按约定日期提供拟交付物、费用、排期、验收条件、待补齐的依赖和双方投入。试点周期由这些条件共同决定。
+3. **确认后动工。** 双方确认范围和报价后，开展约定的方案设计、接入与实现，围绕可演示的结果收集反馈并验收；扩大范围时另行约定。
+
 ## 我会优先回应什么样的需求
 
 - 能描述一件正在发生的工作和反复出现的卡点，最好带一个可分享的最小例子。
@@ -62,6 +68,12 @@ I want to turn a real collaboration problem into a tool you can run and evaluate
 **Joint development depends on concrete contributions.** You might bring a real application, access to users, technical capability or sustained operational support. Describe responsibilities, time commitments and how we will evaluate the first stage. We agree on how the resulting work can be used and on further arrangements before starting.
 
 Discussing collaboration does not grant access to the complete core source. Trial access, integration, deliverables and source-code scope are agreed per project.
+
+### From first contact to kickoff
+
+1. **Initial conversation.** Describe the current workflow, a recent point of friction, the desired result and a small example you can share. Include what you know about tools, data access, preferred timing and budget. We establish fit and agree on a date for the written scope and quote.
+2. **Written scope and quote.** By the agreed date, I provide proposed deliverables, fees, scheduling, acceptance criteria, outstanding dependencies and contributions from each side. Those inputs determine the pilot duration.
+3. **Confirm, then start work.** Once both sides agree on scope and fees, solution design, integration and implementation begin. Feedback and acceptance focus on a demonstrable result; expanded scope is agreed separately.
 
 ### Requests I can work with
 
