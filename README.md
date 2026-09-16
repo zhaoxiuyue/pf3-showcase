@@ -46,7 +46,7 @@ npm run verify
 
 ## Explore the repository
 
-The showcase package is **0.2.5**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.6**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
 - [Design notes](docs/design.md): five states, route versions, executed attempts, rule scopes and handoff context.
 - [Handoff protocol v0.1 draft](protocol/README.md): read, write, version checks, receipts and conflict recovery.

@@ -4,6 +4,12 @@
 
 A fresh AI window needs to know what work is current, which conclusions still matter and what it can change. PF3's project model gives those questions an explicit place. This is the author's explanation of the current design; runnable evidence is identified in the [evidence record](evidence.md) and [repository scope](../README.md#scope-and-evidence).
 
+## Start with a synthetic project tree
+
+The screenshot's synthetic project, “Demo · Does caching actually help?” (缓存到底有没有用), provides the setting for this illustrative continuation. Node ②, “Try an in-memory cache” (试内存缓存), is already failed: its keys include request timestamps, its hit rate is only 11%, and the reason stays on the old node. In this continuation, node ④, “Reshape the cache keys” (按 key 的形状重切缓存), removes the timestamp as a changed premise, reopens ② as a new attempt, and receives a constraint: “Check key shape and reuse before validating against the original criteria.” When ④ finishes validation and closes, if that constraint still applies to later cache experiments in this project, it is promoted to a project rule for ⑤, “Write a rule” (写成一条规则), and subsequent relevant nodes.
+
+![Synthetic project tree: cache attempt ② has failed, while cache-key work ④ is active](screenshots/demo-tree.png)
+
 ## Five states separate readiness, execution and conclusions
 
 | State | What the next window should understand |
@@ -16,7 +22,7 @@ A fresh AI window needs to know what work is current, which conclusions still ma
 
 The important distinction is between pausing and concluding. A missing input may justify a pause while the approach remains viable. A failed attempt leaves a conclusion the next window needs to consider before trying again. Reasons, evidence and decisions supply detail alongside the state.
 
-Each route has at most one active node. Its ordered nodes show earlier attempts, the current focus and proposed work ahead. These five states are a deliberate vocabulary for that workflow; the choice is a design tradeoff, not a claim that every project system needs exactly five states.
+Each route has at most one active node. Its ordered nodes show earlier attempts, the current focus and proposed work ahead.
 
 ## A route version covers decisions involving several nodes
 
@@ -46,9 +52,27 @@ This assigns a lifetime and audience to each instruction. It also creates work a
 
 ## A handoff brings the current work into view
 
-PF3 assembles the applicable rules, necessary project context, current node, write-back information and references to relevant assets. Missing definitions are identified explicitly. Code, reports and other assets can be opened where they live.
+### What am I continuing?
 
-The next window should be able to answer: What am I continuing? What conclusion led here? Which constraints apply? Which version did I read? What result should I leave? Organizing these answers is the continuity problem PF3 addresses; version checks keep a write tied to the state on which it was based.
+PF3 presents the current node's objective, acceptance criteria and boundaries so a fresh window can continue from the current focus, such as node ④'s cache-key work in the synthetic tree.
+
+### What conclusion led here?
+
+PF3 brings together the earlier conclusions referenced by the current node and access to their supporting material, so the next window can inspect relevant results such as ②'s recorded low hit rate and failure reason.
+
+### Which constraints apply?
+
+PF3 supplies applicable cross-project rules, project rules and constraints addressed to the current node; in this continuation, ④ receives “Check key shape and reuse before validating against the original criteria.”
+
+### Which version did I read?
+
+PF3 presents the route version read and the corresponding write-back requirements, so writes that require version checks remain tied to the state read in this session.
+
+### What result should I leave?
+
+PF3 presents acceptance criteria and handoff requirements so this session can record what was done, the basis for its conclusion and the next step; closing ④ also requires resolving its constraints.
+
+Code, reports and other assets remain in their own locations and can be opened through their references as needed.
 
 ## What to evaluate in a pilot
 

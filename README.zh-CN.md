@@ -51,7 +51,7 @@ npm run verify
 
 ## 从哪里开始看
 
-展示包版本为 **0.2.5**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
+展示包版本为 **0.2.6**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
 
 | 内容 | 可以拿来做什么 |
 |---|---|
