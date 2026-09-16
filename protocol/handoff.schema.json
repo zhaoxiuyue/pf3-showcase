@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/main/protocol/handoff.schema.json",
+  "$id": "https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json",
   "title": "PF3 Handoff v0.1 draft",
   "description": "Independent minimal handoff profile, not the complete private PF3 MCP API. Cross-message rules are defined in protocol/README.md.",
   "oneOf": [

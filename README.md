@@ -1,22 +1,22 @@
 # PF3 Showcase · Project Forest 3
 
-**多个 AI 窗口，接着同一份项目状态干活。**
+**Many AI windows. One shared project state.**
 
-[English](README.en.md) · [运行示例](#几分钟跑通交接) · [交接协议](protocol/README.md) · [与 Elara 合作](COLLABORATE.md)
+[中文](README.zh-CN.md) · [Run the example](#run-the-example) · [Handoff protocol](protocol/README.md) · [Work with Elara](COLLABORATE.md#working-with-elara)
 
-换一个窗口，目标、进度和失败原因常常要再讲一次。PF3 把这些内容放进长期项目记录，让后续窗口知道当前结论和下一步，并用版本校验拒绝过期状态写回。
+PF3 explores a recurring workflow problem: a fresh AI window needs the current task, prior conclusions and next steps, while stale write-backs must not overwrite newer work.
 
-我是 **Elara**，PF3 的设计与建设者。我做 **AI 协作流程设计、MCP 与工具接入、定制原型开发**，希望找到有真实问题、愿意一起验证结果的合作伙伴。
+I'm **Elara**, PF3's designer and builder. I design AI collaboration workflows, integrate MCP and existing tools, and build custom prototypes.
 
-这里公开一份小范围的**交接协议草案、JSON Schema、独立参考实现与契约测试**，以及合成演示材料。完整 PF3 实现与运行数据保留私有。
+This repository opens a small **handoff protocol draft, JSON Schema, independent reference implementation and reusable contract tests**, plus synthetic demonstration material. The complete PF3 implementation and operating data remain private.
 
-![PF3 合成项目视图：失败原因、暂停原因、当前任务与后续节点](docs/screenshots/demo-tree.png)
+![A synthetic project view from the complete PF3 implementation](docs/screenshots/demo-tree.png)
 
-*完整 PF3 的合成项目截图，不是客户数据。下方独立示例只实现版本交接，不提供图中的完整界面。*
+*This is a synthetic PF3 project, not customer data. The independent example below implements versioned handoff, not this full UI.*
 
-## 几分钟跑通交接
+## Run the example
 
-需要 **Node.js ≥ 24**，没有第三方依赖，不需要安装依赖、填写密钥或连接模型。
+Requires **Node.js ≥ 24**. No dependencies, installation step, API keys, model calls or remote services.
 
 ```sh
 git clone https://github.com/zhaoxiuyue/pf3-showcase.git
@@ -25,41 +25,34 @@ npm run demo
 npm test
 ```
 
-你会看到：
+Two clients read revision 1. A writes successfully and advances the state to revision 2. B's stale write is refused with `cas_conflict`, leaving the state unchanged. B rereads the new state and continues to revision 3.
 
-1. A、B 都读取 revision 1 的摘要和下一步。
-2. A 写入新进展，收到回执，状态变为 revision 2。
-3. B 带旧 revision 1 写入，被 `cas_conflict` 拒绝，原状态保持不变。
-4. B 重读 revision 2，理解 A 的进展后继续，状态变为 revision 3。
+Everything runs in memory and ends with the process. The example does not connect to private PF3 or MCP, and does not include persistence, undo, authorization or the full project model.
 
-示例使用进程内合成数据，退出即结束。它不连接私有 PF3、MCP 或模型，不包含持久化、撤销、权限或完整项目树。公开的契约测试验证这个小闭环。
+## What is open
 
-## 开放了什么
+The showcase package is **0.2.1**; the protocol remains **PF3 Handoff v0.1 draft**. The schema `$id` is pinned to the release tag. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
-| 内容 | 可以拿来做什么 |
-|---|---|
-| [交接协议 v0.1 草案](protocol/README.md) | 理解读状态、声明版本、写入、拒绝与重读的行为约定 |
-| [JSON Schema](protocol/handoff.schema.json) 与 [消息示例](protocol/examples/handoff.json) | 检查字段结构，制作自己的接入样例 |
-| [独立参考实现](demo/handoff.mjs) | 修改摘要与下一步，观察版本和回执如何变化 |
-| [可复用契约测试](conformance/handoff.mjs) | 将自己的同步 JavaScript 实现接到同一组行为检查 |
-| [实测材料与范围](docs/evidence.md) | 区分可亲自运行的示例、作者记录与实际产品能力 |
+- [Handoff protocol v0.1 draft](protocol/README.md): read, write, version checks, receipts and conflict recovery.
+- [JSON Schema](protocol/handoff.schema.json), [a standalone message](protocol/examples/state.json) and [an exchange trace](protocol/examples/exchange-trace.json): individual payloads and the sequence between them.
+- [Independent reference implementation](demo/handoff.mjs): a small implementation you can inspect and change.
+- [Reusable contract suite](conformance/handoff.mjs): exercise your own synchronous JavaScript implementation against the same checks.
+- [Recorded evidence and its scope](docs/evidence.md): separate reproducible example behavior from author-recorded product demonstrations.
 
-**这是一份最小交接约定，不是完整 PF3 的 MCP 协议或兼容性认证。** 通过测试仅说明满足本草案检查的行为；连接完整 PF3、扩展到真实业务与多人场景，需要另外验证。
+**This is a minimal handoff contract, not the complete PF3 MCP API or a compatibility certification.** Passing the suite is evidence only for the cases it runs. Full product integration and use in a real business workflow require further evaluation.
 
-![合成库的实际命令返回：先写成功，后写因旧版本被拒绝](docs/screenshots/cas-conflict.png)
+![Synthetic command-layer returns: the first write succeeds and the stale write is refused](docs/screenshots/cas-conflict.png)
 
-*2026-09-12 完整 PF3 合成库返回的并排排版。上面的独立示例展示同类机制，但不是截图对应的服务。*
+*Recorded from complete PF3 on September 12, 2026 and laid out side by side. The public example illustrates the same mechanism but is not that service.*
 
-## 从作品到合作
+## Collaborate
 
-适合带来的问题：换窗口后反复解释、AI 与现有工具接不上、结果散落难以接手、工作完成后难以核验。
+Bring one recurring handoff, tool-integration or traceability problem. Start with a focused paid pilot: a working deliverable, a defined scope and acceptance criteria. Joint development is also welcome with concrete contributions from both sides.
 
-优先从一个**范围清楚、能运行、有验收标准的付费验证**开始，再判断是否扩大交付。也欢迎联合开发，请说明你能提供的场景、技术、用户或持续投入。
+Complete PF3 currently validates one owner using multiple AI clients. Team permissions and enterprise workflows need scenario-specific evaluation. The author's September 11, 2026 snapshot counted 12 projects, 224 nodes and 1,776 receipts; these are self-reported historical figures, not customer counts or third-party certification. The related MountainRS research repository will be published separately.
 
-当前完整 PF3 验证的是单个所有者使用多个 AI 客户端；多人权限与企业流程需要在具体场景中验证。按作者 2026-09-11 的历史快照，实例有 12 个项目、224 个节点和 1776 张回执。这是自述统计，不是客户数量或第三方认证。相关研究案例 MountainRS 将另行公开。
+**[Collaboration details](COLLABORATE.md#working-with-elara)** · **[XiuyueZhao@outlook.com](mailto:XiuyueZhao@outlook.com)**
 
-**[合作方向与联系模板](COLLABORATE.md)** · **Elara：[XiuyueZhao@outlook.com](mailto:XiuyueZhao@outlook.com)**
+## License
 
-## 许可
-
-除 `docs/` 外，随包分发的协议、Schema、参考代码与测试采用 [Apache-2.0](LICENSE)；`docs/` 下的文字、记录与图片采用 [CC BY 4.0](docs/LICENSE-docs.md)。另见 [NOTICE](NOTICE)。完整 PF3 内核、内部文档、Git 历史、数据库与知识正文不在这个仓库中。
+The distributed protocol, schema, code and tests outside `docs/` use [Apache-2.0](LICENSE). Materials inside `docs/` use [CC BY 4.0](docs/LICENSE-docs.md). See [NOTICE](NOTICE). This repository does not include the complete PF3 implementation, internal documents, Git history, database or private knowledge bodies.

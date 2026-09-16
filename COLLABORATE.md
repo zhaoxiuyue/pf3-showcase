@@ -1,5 +1,7 @@
 # 与 Elara 合作
 
+[English](#working-with-elara) · [中文入口](README.zh-CN.md)
+
 我希望把一个实际协作问题做成可以运行、可以验收的工具。最好的起点，是你已经在做的一件事，以及其中反复卡住的一步。
 
 ## 可以一起做什么
@@ -39,10 +41,47 @@
 
 联系 **Elara：[XiuyueZhao@outlook.com](mailto:XiuyueZhao@outlook.com)**。邮件主题可写“PF3 合作｜一句话描述问题”。
 
-还想先了解作品？[回到 README](README.md) 或 [阅读交接协议](protocol/README.md)。
+还想先了解作品？[回到 README](README.zh-CN.md) 或 [阅读交接协议](protocol/README.zh-CN.md)。
 
 ## Working with Elara
 
-I design AI collaboration workflows, integrate MCP and existing tools, and build custom prototypes. Start with a focused paid pilot: one real problem, a runnable deliverable and agreed acceptance criteria. Joint development is welcome with clear contributions from both sides.
+I want to turn a real collaboration problem into a tool you can run and evaluate. The best starting point is something you already do and a step that repeatedly gets stuck.
 
-Email **[XiuyueZhao@outlook.com](mailto:XiuyueZhao@outlook.com)** with your current workflow, a recent point of friction, your desired outcome, timeframe and budget or contribution, and who will provide feedback and acceptance. Access to the complete PF3 implementation is agreed per engagement; it is not included in this public package.
+### What we can build together
+
+| Area | A small first deliverable |
+|---|---|
+| AI collaboration workflow design | One workflow with clear sources of state, destinations for results and context for the next person or agent |
+| MCP and tool integration | One real action or data source, with results that can be read back and verified |
+| Project records and decision interfaces | A project view showing current progress, supporting evidence and reasons for failed attempts |
+
+### Two ways to start
+
+**A paid pilot is the main starting point.** We agree on one problem, a demonstrable deliverable, acceptance criteria, materials each side provides, fees and timing. After the pilot, we decide whether to expand, change direction or stop. Initial contact establishes fit; detailed solution design, integration and implementation are work agreed as part of the engagement.
+
+**Joint development depends on concrete contributions.** You might bring a real application, access to users, technical capability or sustained operational support. Describe responsibilities, time commitments and how we will evaluate the first stage. We agree on how the resulting work can be used and on further arrangements before starting.
+
+Discussing collaboration does not grant access to the complete core source. Trial access, integration, deliverables and source-code scope are agreed per project.
+
+### Requests I can work with
+
+- Describe an existing workflow and a recurring problem, ideally with a small example you can share.
+- Arrange feedback and acceptance, with someone able to decide scope, tradeoffs and investment.
+- Start by validating a small result before discussing a larger system.
+- Include a budget range for paid work, or clear, sustainable contributions for joint development.
+
+Broad requests to build a fully autonomous agent, deliver a complete unpaid solution first, or provide only the private core source do not fit this entry point. It is fine if the problem is still taking shape; say that you are exploring.
+
+### What to send
+
+A short email covering these points is enough; a formal specification is not required:
+
+1. **Current workflow:** Who does the work, with which tools, and how long does it take?
+2. **Recurring friction:** What happened most recently, and what rework or waiting did it cause?
+3. **Desired outcome:** What first result would make further work worthwhile?
+4. **Available investment:** Time, budget or a specific joint-development contribution.
+5. **Working together:** Who decides scope, provides materials and feedback, and participates in acceptance?
+
+Contact **Elara at [XiuyueZhao@outlook.com](mailto:XiuyueZhao@outlook.com)**. A useful subject line is “PF3 collaboration | your problem in one sentence”.
+
+[Read the overview](README.md) or [the handoff protocol](protocol/README.md).

@@ -1,55 +1,63 @@
-# PF3 Handoff v0.1 · 草案
+# PF3 Handoff v0.1 · Draft
 
-本协议定义一个摘要与下一步的版本交接闭环。它从 PF3 的协作问题中提取出一个小范围约定，供独立实现与讨论；**它不是完整 PF3 工具 API，不承诺与私有 PF3 服务直接兼容。**
+[中文](README.zh-CN.md) · [Showcase overview](../README.md)
 
-## 对象与动作
+This protocol defines a small versioned handoff for a summary and a next step. It extracts a narrow contract from PF3's collaboration problem for independent implementation and discussion. **It is not the complete PF3 tool API and does not promise direct compatibility with the private PF3 service.**
 
-| 对象 / 动作 | 字段或结果 |
+## Objects and operations
+
+| Object / operation | Fields or result |
 |---|---|
-| State | `revision`、`summary`、`nextStep` |
-| WriteRequest | `expectedRevision`、`summary`、`nextStep`、`actor` |
-| Receipt | `id`、`actor`、`beforeRevision`、`afterRevision` |
-| 读取 `read()` | 当前 State 的独立快照 |
-| 写入 `write(request)` | WriteAccepted 或 WriteConflict |
-| 读取回执 `readReceipts()` | 成功写入的 Receipt 列表，按产生顺序排列 |
+| State | `revision`, `summary`, `nextStep` |
+| WriteRequest | `expectedRevision`, `summary`, `nextStep`, `actor` |
+| Receipt | `id`, `actor`, `beforeRevision`, `afterRevision` |
+| `read()` | A detached snapshot of the current State |
+| `write(request)` | WriteAccepted or WriteConflict |
+| `readReceipts()` | Receipts for successful writes, in creation order |
 
-字段结构见 [JSON Schema](handoff.schema.json)，完整消息例子见 [handoff.json](examples/handoff.json)。Schema 约束消息形状；下面的跨调用语义由行为测试检查。
+The [JSON Schema](handoff.schema.json) defines individual message shapes. The [contract suite](../conformance/handoff.mjs) checks behavior across calls.
 
-## 行为约定
+## Behavioral contract
 
-1. 创建时提供非空 `summary` 与 `nextStep`，初始 `revision = 1`，回执为空。
-2. 有效写入声明读到的正整数 `expectedRevision`，并提供非空 `summary`、`nextStep` 与 `actor`。
-3. 版本匹配时，一次写入将摘要与下一步一起替换，revision 增加 1，并产生一张回执。成功响应包含 `ok: true`、`receipt` 与新 `state`。
-4. 回执记录请求中的 actor 和准确的前后版本；id 在该实例中唯一且不复用。id 格式是不透明的，不能依赖参考实现的编号方式。
-5. 版本不匹配时返回 `ok: false`，错误码为 `cas_conflict`，包含期望版本、当前版本和非空说明。状态与成功回执列表均不变化。
-6. 冲突之后先重读，再根据最新状态判断下一步；不能只替换版本号重发旧意图。
-7. 调用方修改读出的快照或返回回执，不改变共享状态；独立实例之间不共享状态。
-8. 本草案的同步 JavaScript 绑定对无效版本或空白必填文字抛出 `TypeError`，且不改变状态。错误消息的具体文案与语言不属于固定协议。
+1. Creation requires non-empty `summary` and `nextStep` strings. The initial `revision` is 1 and the receipt list is empty.
+2. A valid write declares the positive integer `expectedRevision` the client read, together with non-empty `summary`, `nextStep` and `actor` strings. Revisions must be JavaScript safe integers; see the schema for the numeric bounds.
+3. When the revision matches, a write atomically replaces both text fields, increments the revision by one and creates one receipt. The response contains `ok: true`, `receipt` and the new `state`.
+4. A receipt records the request's actor and the exact before/after revisions. Its ID is unique within that instance and is never reused. IDs are opaque: clients must not depend on the reference implementation's numbering format.
+5. When the revision does not match, the result contains `ok: false` and a `cas_conflict` error with the expected revision, current revision and a non-empty message. Neither state nor the successful receipt list changes.
+6. After a conflict, the client rereads the state and reconsiders its next step. Merely substituting a new revision and resending an old intent is not conflict recovery.
+7. Modifying returned state snapshots or receipts does not change shared state. Independent instances do not share state.
+8. The synchronous JavaScript binding throws `TypeError` for invalid initial values, invalid revisions, or required text that is not a string or is blank. Invalid writes leave state and receipts unchanged. Exact error wording and language are not fixed by the protocol.
 
-本草案不定义传输、认证、持久化、幂等重试、撤销、项目树、规则审批、模型调用或智能规划。actor 是声明值，不是认证身份。实现需要这些能力时应另行定义和验证，不从本例推导保证。
+This draft does not define transport, authentication, persistence, idempotent retries, undo, project trees, rule approval, model calls or planning. `actor` is a declared value, not an authenticated identity. Implementations needing those capabilities must define and validate them separately.
 
-## 接自己的实现
+## Test your implementation
+
+Place your implementation at the repository root and register it with the suite:
 
 ```js
 // tests/my-handoff.test.mjs
-import { registerHandoffContractTests } from './path/to/conformance/handoff.mjs';
-import { createHandoff } from './my-implementation.mjs';
+import { registerHandoffContractTests } from '../conformance/handoff.mjs';
+import { createHandoff } from '../my-implementation.mjs';
 
 registerHandoffContractTests(createHandoff);
 ```
 
-然后运行 `node --test tests/my-handoff.test.mjs`。工厂接收 `{ summary, nextStep }`，返回包含上述三个同步方法的实例；其他语言或异步传输可参考语义与消息示例实现自己的验证。
+Run `node --test tests/my-handoff.test.mjs`. The factory accepts `{ summary, nextStep }` and returns an instance with the three synchronous methods above. Other languages or asynchronous transports can use the semantics and example messages to build their own checks.
 
-通过当前测试只表示覆盖了本草案列出的行为，不证明生产性能、权限边界或完整 PF3 兼容性。
+Passing the suite is evidence only for the cases it runs. It does not establish production performance, authorization boundaries or complete PF3 compatibility.
 
-## English contract summary
+## Versions and examples
 
-This draft specifies a small in-memory handoff profile, not the complete PF3 API. State starts at revision 1 with a non-empty summary and next step. A write includes an expected revision, replacement text and a declared actor.
+**Showcase 0.2.1** and **PF3 Handoff v0.1 draft** are separate versions. This patch corrects the tests and documentation without changing message shapes or the behavioral contract.
 
-A matching write atomically replaces both text fields, advances the revision by one and appends a uniquely identified receipt with actor and before/after revisions. A stale write returns `cas_conflict` with expected and current revisions and changes neither state nor successful receipts. Clients reread and reconsider their intent before continuing.
+The schema `$id` is pinned to `https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json`. Later changes receive a new release tag and `$id`; published schema identities are not overwritten.
 
-Returned snapshots and receipts are detached from shared state. Instances are independent. The synchronous JavaScript binding throws `TypeError` for invalid revisions or blank required text without mutation. Receipt IDs and human-readable messages are implementation-defined.
+Each of these files is one message that can be validated directly against the schema:
 
-The [schema](handoff.schema.json) covers message shapes. The [contract suite](../conformance/handoff.mjs) covers behavior. Transport, identity verification, persistence, idempotency, undo, project trees and the full PF3 service are outside this profile.
+- [state.json](examples/state.json): a read result, corresponding to `$defs/state`.
+- [write-request.json](examples/write-request.json): a write request, corresponding to `$defs/writeRequest`.
+- [write-conflict.json](examples/write-conflict.json): a stale-write refusal, corresponding to `$defs/writeConflict`.
 
-[返回展示入口](../README.md) · [English overview](../README.en.md)
+[exchange-trace.json](examples/exchange-trace.json) is an **exchange trace** containing `profile`, `scope`, `initial` and `steps`. Its wrapper is not a protocol message and does not validate against this schema. Validate its `initial`, each `request` and each `result` separately. Relationships between successive states require replay or behavioral checks.
+
+[Back to the showcase](../README.md)

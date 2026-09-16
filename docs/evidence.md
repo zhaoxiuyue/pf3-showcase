@@ -14,7 +14,7 @@
 
 A、B 都基于 revision 1。A 的回执记录 1 → 2，B 返回 `cas_conflict` 并报告当前 revision 2。截图是实际命令返回的排版展示；调用者由合成 actor 模拟。
 
-[JSON 摘录](recorded-refusals.json)保留精选字段，ID 省略；错误文字与版本值保持记录原值。完整 PF3 的返回结构与公开小协议并不相同，不能用该摘录当作公开协议的消息样例；协议消息见 [handoff.json](../protocol/examples/handoff.json)。
+[JSON 摘录](recorded-refusals.json)保留精选字段，ID 省略；错误文字与版本值保持记录原值。完整 PF3 的返回结构与公开小协议并不相同，不能用该摘录当作公开协议的消息样例；单条协议消息见 [write-conflict.json](../protocol/examples/write-conflict.json)，完整交接过程见[消息轨迹](../protocol/examples/exchange-trace.json)。
 
 ## 使用规模与局限
 

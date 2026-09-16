@@ -1,0 +1,6 @@
+{
+  "expectedRevision": 1,
+  "summary": "A 完成第一步",
+  "nextStep": "B 读取最新进度",
+  "actor": "A"
+}

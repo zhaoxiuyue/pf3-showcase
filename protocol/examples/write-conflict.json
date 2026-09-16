@@ -1,0 +1,9 @@
+{
+  "ok": false,
+  "error": {
+    "code": "cas_conflict",
+    "expectedRevision": 1,
+    "currentRevision": 2,
+    "message": "状态已变化；重新读取后再决定怎样继续。"
+  }
+}
