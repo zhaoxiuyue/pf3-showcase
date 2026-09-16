@@ -2,6 +2,8 @@
 
 [English](#working-with-elara) · [中文入口](README.zh-CN.md)
 
+我是 **Elara（Xiuyue Zhao）**，PF3 的设计与建设者，以个人身份提供 AI 协作流程设计、MCP 与工具接入和定制原型开发。
+
 我希望把一个实际协作问题做成可以运行、可以验收的工具。最好的起点，是你已经在做的一件事，以及其中反复卡住的一步。
 
 ## 可以一起做什么
@@ -50,6 +52,8 @@
 还想先了解作品？[回到 README](README.zh-CN.md) 或 [阅读交接协议](protocol/README.zh-CN.md)。
 
 ## Working with Elara
+
+I'm **Elara (Xiuyue Zhao)**, PF3's designer and builder. I offer AI collaboration workflow design, MCP and tool integration, and custom prototype development as an independent developer.
 
 I want to turn a real collaboration problem into a tool you can run and evaluate. The best starting point is something you already do and a step that repeatedly gets stuck.
 

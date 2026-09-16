@@ -1,6 +1,6 @@
 {
   "name": "pf3-showcase",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "A minimal PF3 handoff protocol draft, JSON Schema and independent reference implementation for versioned AI workflows.",
   "type": "module",
   "license": "Apache-2.0",
