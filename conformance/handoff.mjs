@@ -13,15 +13,22 @@ export function registerHandoffContractTests(createHandoff) {
     const handoff = fresh();
     const a = handoff.read();
     const b = handoff.read();
-    const accepted = write(handoff, a.revision);
-    const beforeConflict = structuredClone(handoff.read());
-    const receiptsBeforeConflict = structuredClone(handoff.readReceipts());
-    const refused = write(handoff, b.revision, 'B');
+    const request = {
+      expectedRevision: a.revision, actor: 'A', summary: 'A 的进度', nextStep: '接着读最新状态',
+    };
+    const expectedState = { revision: 2, summary: request.summary, nextStep: request.nextStep };
+    const accepted = handoff.write(request);
     assert.equal(accepted.ok, true);
+    assert.deepEqual(accepted.state, expectedState);
+    assert.deepEqual(handoff.read(), expectedState);
     assert.equal(accepted.receipt.actor, 'A');
     assert.equal(accepted.receipt.beforeRevision, 1);
     assert.equal(accepted.receipt.afterRevision, 2);
-    assert.deepEqual(accepted.state, handoff.read());
+    assert.deepEqual(handoff.readReceipts(), [accepted.receipt]);
+
+    const beforeConflict = structuredClone(handoff.read());
+    const receiptsBeforeConflict = structuredClone(handoff.readReceipts());
+    const refused = write(handoff, b.revision, 'B');
     assert.equal(refused.ok, false);
     assert.equal(refused.error.code, 'cas_conflict');
     assert.equal(refused.error.currentRevision, 2);
@@ -34,19 +41,25 @@ export function registerHandoffContractTests(createHandoff) {
 
   test('被拒绝的客户端重读后，可以根据新进度续接，回执按顺序衔接', () => {
     const handoff = fresh();
-    write(handoff, 1);
+    const first = write(handoff, 1);
     assert.equal(write(handoff, 1, 'B').ok, false);
     const latest = handoff.read();
     assert.equal(latest.summary, 'A 的进度');
-    const continued = handoff.write({
+    const request = {
       actor: 'B', expectedRevision: latest.revision,
       summary: latest.summary + '；B 接着完成', nextStep: '共同验收',
-    });
+    };
+    const expectedState = { revision: 3, summary: request.summary, nextStep: request.nextStep };
+    const continued = handoff.write(request);
     assert.equal(continued.ok, true);
-    assert.equal(handoff.read().revision, 3);
-    assert.equal(handoff.read().summary, 'A 的进度；B 接着完成');
-    assert.deepEqual(handoff.readReceipts().map(r => [r.beforeRevision, r.afterRevision]), [[1, 2], [2, 3]]);
-    const ids = handoff.readReceipts().map(r => r.id);
+    assert.deepEqual(continued.state, expectedState);
+    assert.deepEqual(handoff.read(), expectedState);
+    assert.equal(continued.receipt.actor, 'B');
+    const receipts = handoff.readReceipts();
+    assert.deepEqual(receipts.map(r => r.actor), ['A', 'B']);
+    assert.deepEqual(receipts.map(r => [r.beforeRevision, r.afterRevision]), [[1, 2], [2, 3]]);
+    assert.deepEqual(receipts, [first.receipt, continued.receipt]);
+    const ids = receipts.map(r => r.id);
     assert.ok(ids.every(id => typeof id === 'string' && id.trim()));
     assert.equal(new Set(ids).size, ids.length);
   });

@@ -48,7 +48,7 @@ Passing the suite is evidence only for the cases it runs. It does not establish 
 
 ## Versions and examples
 
-**Showcase 0.2.1** and **PF3 Handoff v0.1 draft** are separate versions. This patch corrects the tests and documentation without changing message shapes or the behavioral contract.
+**Showcase 0.2.2** and **PF3 Handoff v0.1 draft** are separate versions. This patch strengthens contract assertions without changing the reference implementation, schema or behavioral contract. The [v0.2.2 audit](../docs/contract-audit-v0.2.2.md) maps all eight clauses to checks and records the bounded mutation audit.
 
 The schema `$id` is pinned to `https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json`. Later changes receive a new release tag and `$id`; published schema identities are not overwritten.
 

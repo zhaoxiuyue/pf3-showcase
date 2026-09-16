@@ -48,7 +48,7 @@ registerHandoffContractTests(createHandoff);
 
 ## 版本与示例
 
-**展示包 0.2.1** 与 **PF3 Handoff v0.1 draft** 是不同的版本。这个补丁修正契约测试与文档，没有改变消息结构或行为约定。
+**展示包 0.2.2** 与 **PF3 Handoff v0.1 draft** 是不同的版本。这个补丁补齐契约断言，没有改变参考实现、Schema 或行为约定。[v0.2.2 审计记录](../docs/contract-audit-v0.2.2.md)逐条对应八项约定的测试证据，并记录本轮限定范围的反例核验。
 
 Schema 的 `$id` 固定为 `https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json`。后续修改使用新的发布标签与 `$id`，不覆盖已发布的 Schema 身份。
 
