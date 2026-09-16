@@ -16,7 +16,7 @@ This repository opens a small **handoff protocol draft, JSON Schema, independent
 
 ## Run the example
 
-Requires **Node.js ≥ 24**. No dependencies, installation step, API keys, model calls or remote services.
+Requires **Node.js ≥ 24**. The demo and contract tests need no third-party packages, API keys, model calls or remote services.
 
 ```sh
 git clone https://github.com/zhaoxiuyue/pf3-showcase.git
@@ -31,9 +31,22 @@ Two clients read revision 1. A writes successfully and advances the state to rev
 
 Everything runs in memory and ends with the process. The example does not connect to private PF3 or MCP, and does not include persistence, undo, authorization or the full project model.
 
+## Engineering checks
+
+```sh
+npm ci
+npm run verify
+```
+
+`npm ci` installs the locked development-only schema validator. `npm run verify` runs the existing contract tests, validates the schema examples and replays their exchange trace, then verifies the export manifest's file list, byte counts and SHA256 hashes. The manifest checker only reads; it never refreshes hashes to make a check pass.
+
+[CI](https://github.com/zhaoxiuyue/pf3-showcase/actions/workflows/ci.yml) runs the three checks on Node 24 and 26 across Linux, macOS and Windows. See the [engineering verification record](docs/engineering-v0.2.4.md).
+
+The showcase is frozen after v0.2.4. A future 0.3.x will wait for publicly verifiable MountainRS evidence.
+
 ## What is open
 
-The showcase package is **0.2.3**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.4**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
 - [Handoff protocol v0.1 draft](protocol/README.md): read, write, version checks, receipts and conflict recovery.
 - [JSON Schema](protocol/handoff.schema.json), [a standalone message](protocol/examples/state.json) and [an exchange trace](protocol/examples/exchange-trace.json): individual payloads and the sequence between them.

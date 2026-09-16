@@ -1,6 +1,6 @@
 {
   "name": "pf3-showcase",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A minimal PF3 handoff protocol draft, JSON Schema and independent reference implementation for versioned AI workflows.",
   "type": "module",
   "license": "Apache-2.0",
@@ -14,6 +14,12 @@
   },
   "scripts": {
     "demo": "node demo/run.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "validate:examples": "node scripts/validate-examples.mjs",
+    "verify:manifest": "node scripts/verify-manifest.mjs",
+    "verify": "npm test && npm run validate:examples && npm run verify:manifest"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0"
   }
 }

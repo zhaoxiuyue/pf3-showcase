@@ -1,9 +1,14 @@
 {
   "distribution": "pf3-showcase",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "protocol": "PF3 Handoff v0.1 draft",
   "scope": "Independent protocol, reference example, contract tests and synthetic evidence; no complete PF3 implementation, private data or original Git history.",
   "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 952,
+      "sha256": "aba00e48561f9aa183631f8ef6a7a6ab6514257dbeb02b0d8c7922225a164377"
+    },
     {
       "path": ".gitignore",
       "bytes": 30,
@@ -26,13 +31,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 4535,
-      "sha256": "e40d1693869f9d7f48b50c5ad600a6937e0bd9dde7485e00463442115f03191b"
+      "bytes": 5279,
+      "sha256": "ebd8db10d642a88a69cec57a09dd2231d097d843b64b924e71b37fb410904378"
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 4603,
-      "sha256": "31742318ce8d45409aabd76fadbe6e0d25ba5cef02c2eb61d98f6393b49857d6"
+      "bytes": 5248,
+      "sha256": "0bfcf463f86133563d1e9a6bdd8cbfdc800e9e712811c4b8b7a4238cf76ba0a8"
     },
     {
       "path": "conformance/handoff.mjs",
@@ -65,6 +70,11 @@
       "sha256": "2a57c784a914225e30bc4b4d1d6ae7b4dfb5b88b98c5be51bfc3295a155fe385"
     },
     {
+      "path": "docs/engineering-v0.2.4.md",
+      "bytes": 3092,
+      "sha256": "135d0f8c0aa861c47d6e0a413ed2d47b3276513cfe9ae79fe4534114e83cdd62"
+    },
+    {
       "path": "docs/evidence.md",
       "bytes": 1830,
       "sha256": "63d806ec40fd1bf83def682c88b785b759224d1a576ad69a32d66904cfc07482"
@@ -85,9 +95,14 @@
       "sha256": "b74897370de8bfa11355a36323828d701523f14b4e37f63d2d07015b7ccdd2b0"
     },
     {
+      "path": "package-lock.json",
+      "bytes": 2515,
+      "sha256": "1b567b967ce2a87ad9389fce741ba421a773a76057a24d797a438be7e084c6b8"
+    },
+    {
       "path": "package.json",
-      "bytes": 513,
-      "sha256": "154685951fc0b9efbfb01ee5cdc5d9e64938300932d3a7efee229c7b3f17dcb9"
+      "bytes": 765,
+      "sha256": "0aab390ebc7e09649bd577f9c5464708b434bb7038b7933e6779a21fbccf2d36"
     },
     {
       "path": "protocol/README.md",
@@ -123,6 +138,16 @@
       "path": "protocol/handoff.schema.json",
       "bytes": 3951,
       "sha256": "dfaab9ffb8f87723cccf6dc8f8340d36a55f31f868f7335e7e591a74f9030aaa"
+    },
+    {
+      "path": "scripts/validate-examples.mjs",
+      "bytes": 1845,
+      "sha256": "cc5fbe1a63c62542c9f77598f88deb7bc0f06fa65c6223ded66ae4ff755c587c"
+    },
+    {
+      "path": "scripts/verify-manifest.mjs",
+      "bytes": 1867,
+      "sha256": "a29053cb35489cd11814230c2f3c941ac526c859665a4209c1766fd0f7a4f612"
     },
     {
       "path": "tests/fixtures/frozen-detached-output.mjs",

@@ -16,7 +16,7 @@
 
 ## 几分钟跑通交接
 
-需要 **Node.js ≥ 24**，没有第三方依赖，不需要安装依赖、填写密钥或连接模型。
+需要 **Node.js ≥ 24**。演示与契约测试不需要第三方依赖、密钥或模型连接。
 
 ```sh
 git clone https://github.com/zhaoxiuyue/pf3-showcase.git
@@ -36,9 +36,22 @@ npm test
 
 示例使用进程内合成数据，退出即结束。它不连接私有 PF3、MCP 或模型，不包含持久化、撤销、权限或完整项目树。公开的契约测试验证这个小闭环。
 
+## 工程检查
+
+```sh
+npm ci
+npm run verify
+```
+
+`npm ci` 安装 lockfile 固定的开发用 Schema 校验器。`npm run verify` 依次运行原有契约测试、Schema/示例验证与消息轨迹重放，再核对导出清单的文件列表、字节数和 SHA256。清单校验只读，不会通过更新哈希把检查变绿。
+
+[CI](https://github.com/zhaoxiuyue/pf3-showcase/actions/workflows/ci.yml) 在 Linux、macOS、Windows 上分别使用 Node 24 和 26 执行三项检查。见[工程验证记录](docs/engineering-v0.2.4.md)。
+
+Showcase 在 v0.2.4 后冻结；等待 MountainRS 提供可公开核验的真实成果，再进入 0.3.x。
+
 ## 开放了什么
 
-展示包版本为 **0.2.3**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
+展示包版本为 **0.2.4**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
 
 | 内容 | 可以拿来做什么 |
 |---|---|
