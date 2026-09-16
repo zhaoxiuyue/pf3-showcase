@@ -1,6 +1,6 @@
 {
   "distribution": "pf3-showcase",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "protocol": "PF3 Handoff v0.1 draft",
   "scope": "Independent protocol, reference example, contract tests and synthetic evidence; no complete PF3 implementation, private data or original Git history.",
   "files": [
@@ -26,18 +26,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 4346,
-      "sha256": "0f3ba607900ce665b50fadcf16b5b2a8f9317847b14104d98bec526af19d5cdd"
+      "bytes": 4535,
+      "sha256": "e40d1693869f9d7f48b50c5ad600a6937e0bd9dde7485e00463442115f03191b"
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 4429,
-      "sha256": "28f7b2aa375730fd37c4dc78af82693718b8219ef17466bb33dc5643a2152f4c"
+      "bytes": 4603,
+      "sha256": "31742318ce8d45409aabd76fadbe6e0d25ba5cef02c2eb61d98f6393b49857d6"
     },
     {
       "path": "conformance/handoff.mjs",
-      "bytes": 6175,
-      "sha256": "39f47cd84b68328063bbf8becef64e9c0cd94b86db3a6a0cfecbd5cdfef5f156"
+      "bytes": 6455,
+      "sha256": "37b2699ff11630641f502a52232028ea055ad56c828473018fc37956ee9918be"
     },
     {
       "path": "demo/handoff.mjs",
@@ -58,6 +58,11 @@
       "path": "docs/contract-audit-v0.2.2.md",
       "bytes": 5004,
       "sha256": "6ffce5c78032e92fe0cc1aec9fcb7204369cdce5fc546533d902502b4b362b26"
+    },
+    {
+      "path": "docs/contract-audit-v0.2.3.md",
+      "bytes": 2748,
+      "sha256": "2a57c784a914225e30bc4b4d1d6ae7b4dfb5b88b98c5be51bfc3295a155fe385"
     },
     {
       "path": "docs/evidence.md",
@@ -81,8 +86,8 @@
     },
     {
       "path": "package.json",
-      "bytes": 519,
-      "sha256": "263724a12d7c135b0d001f9577a02705ee312d3d62cd3763683a4ce4fcb477b0"
+      "bytes": 513,
+      "sha256": "154685951fc0b9efbfb01ee5cdc5d9e64938300932d3a7efee229c7b3f17dcb9"
     },
     {
       "path": "protocol/README.md",
@@ -118,6 +123,16 @@
       "path": "protocol/handoff.schema.json",
       "bytes": 3951,
       "sha256": "dfaab9ffb8f87723cccf6dc8f8340d36a55f31f868f7335e7e591a74f9030aaa"
+    },
+    {
+      "path": "tests/fixtures/frozen-detached-output.mjs",
+      "bytes": 750,
+      "sha256": "f522ea9f43afc570abd095f9531cc00217f659dbf1283b0427428ce0e60c7c11"
+    },
+    {
+      "path": "tests/frozen-handoff.test.mjs",
+      "bytes": 281,
+      "sha256": "7accd1890253f66ba8168abd4c0cb5cefcac6d2587c9459d3e12c7374cd6cb62"
     },
     {
       "path": "tests/handoff.test.mjs",

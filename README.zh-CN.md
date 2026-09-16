@@ -25,6 +25,8 @@ npm run demo
 npm test
 ```
 
+测试命令会对参考实现与 frozen 返回值的合法对照实现，各运行同样的六项契约检查。见 [v0.2.3 对照验证](docs/contract-audit-v0.2.3.md)。
+
 你会看到：
 
 1. A、B 都读取 revision 1 的摘要和下一步。
@@ -36,7 +38,7 @@ npm test
 
 ## 开放了什么
 
-展示包版本为 **0.2.2**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
+展示包版本为 **0.2.3**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
 
 | 内容 | 可以拿来做什么 |
 |---|---|

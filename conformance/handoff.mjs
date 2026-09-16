@@ -66,28 +66,34 @@ export function registerHandoffContractTests(createHandoff) {
 
   test('调用者修改读取快照或返回回执，不能绕过写入口改变共享状态', () => {
     const handoff = fresh();
+    const assertDetached = (mutate, expectedState, expectedReceipts) => {
+      try {
+        mutate();
+      } catch {
+        // Read-only outputs may reject a local mutation attempt.
+        // Readback and assertions stay outside this catch and always run.
+      }
+      assert.deepEqual(handoff.read(), expectedState);
+      assert.deepEqual(handoff.readReceipts(), expectedReceipts);
+    };
     const beforeRead = structuredClone(handoff.read());
     const snapshot = handoff.read();
-    snapshot.summary = '擅自修改快照';
-    assert.deepEqual(handoff.read(), beforeRead);
-    assert.deepEqual(handoff.readReceipts(), []);
+    assertDetached(() => { snapshot.summary = '擅自修改快照'; }, beforeRead, []);
 
     const accepted = write(handoff, 1);
     const beforeMutation = structuredClone(handoff.read());
     const receiptsBeforeMutation = structuredClone(handoff.readReceipts());
-    accepted.state.revision = 99;
-    accepted.state.summary = '擅自修改写入响应';
-    accepted.state.nextStep = '跳过正式写入';
-    assert.deepEqual(handoff.read(), beforeMutation);
-
-    accepted.receipt.afterRevision = 99;
-    assert.deepEqual(handoff.readReceipts(), receiptsBeforeMutation);
-
     const receipts = handoff.readReceipts();
-    receipts[0].actor = '改名';
-    receipts.push({});
-    assert.deepEqual(handoff.read(), beforeMutation);
-    assert.deepEqual(handoff.readReceipts(), receiptsBeforeMutation);
+    for (const mutate of [
+      () => { accepted.state.revision = 99; },
+      () => { accepted.state.summary = '擅自修改写入响应'; },
+      () => { accepted.state.nextStep = '跳过正式写入'; },
+      () => { accepted.receipt.afterRevision = 99; },
+      () => { receipts[0].actor = '改名'; },
+      () => { receipts.push({}); },
+    ]) {
+      assertDetached(mutate, beforeMutation, receiptsBeforeMutation);
+    }
   });
 
   test('每一次无效写入都保持完整状态与回执不变', () => {
