@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/main/protocol/handoff.schema.json",
+  "title": "PF3 Handoff v0.1 draft",
+  "description": "Independent minimal handoff profile, not the complete private PF3 MCP API. Cross-message rules are defined in protocol/README.md.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/initialState"
+    },
+    {
+      "$ref": "#/$defs/state"
+    },
+    {
+      "$ref": "#/$defs/writeRequest"
+    },
+    {
+      "$ref": "#/$defs/receipt"
+    },
+    {
+      "$ref": "#/$defs/writeAccepted"
+    },
+    {
+      "$ref": "#/$defs/writeConflict"
+    },
+    {
+      "$ref": "#/$defs/receiptList"
+    }
+  ],
+  "$defs": {
+    "text": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "initialState": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "summary": {
+          "$ref": "#/$defs/text"
+        },
+        "nextStep": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "required": [
+        "summary",
+        "nextStep"
+      ]
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "revision": {
+          "$ref": "#/$defs/revision"
+        },
+        "summary": {
+          "$ref": "#/$defs/text"
+        },
+        "nextStep": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "required": [
+        "revision",
+        "summary",
+        "nextStep"
+      ]
+    },
+    "writeRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "expectedRevision": {
+          "$ref": "#/$defs/revision"
+        },
+        "summary": {
+          "$ref": "#/$defs/text"
+        },
+        "nextStep": {
+          "$ref": "#/$defs/text"
+        },
+        "actor": {
+          "$ref": "#/$defs/text"
+        }
+      },
+      "required": [
+        "expectedRevision",
+        "summary",
+        "nextStep",
+        "actor"
+      ]
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text"
+        },
+        "actor": {
+          "$ref": "#/$defs/text"
+        },
+        "beforeRevision": {
+          "$ref": "#/$defs/revision"
+        },
+        "afterRevision": {
+          "$ref": "#/$defs/revision"
+        }
+      },
+      "required": [
+        "id",
+        "actor",
+        "beforeRevision",
+        "afterRevision"
+      ]
+    },
+    "writeAccepted": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ok": {
+          "const": true
+        },
+        "receipt": {
+          "$ref": "#/$defs/receipt"
+        },
+        "state": {
+          "$ref": "#/$defs/state"
+        }
+      },
+      "required": [
+        "ok",
+        "receipt",
+        "state"
+      ]
+    },
+    "writeConflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ok": {
+          "const": false
+        },
+        "error": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "const": "cas_conflict"
+            },
+            "expectedRevision": {
+              "$ref": "#/$defs/revision"
+            },
+            "currentRevision": {
+              "$ref": "#/$defs/revision"
+            },
+            "message": {
+              "$ref": "#/$defs/text"
+            }
+          },
+          "required": [
+            "code",
+            "expectedRevision",
+            "currentRevision",
+            "message"
+          ]
+        }
+      },
+      "required": [
+        "ok",
+        "error"
+      ]
+    },
+    "receiptList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/receipt"
+      }
+    }
+  }
+}

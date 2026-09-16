@@ -1,0 +1,23 @@
+{
+  "kind": "recorded_private_pf3_outputs",
+  "recordedOn": "2026-09-12",
+  "pf3Version": "0.28.6",
+  "environment": "synthetic in-memory databases",
+  "scope": "Selected fields from an earlier full-PF3 command-layer run, not the public handoff protocol. IDs omitted; recorded error text and revisions unchanged.",
+  "cas": {
+    "expectedRevision": 1,
+    "accepted": {
+      "ok": true,
+      "beforeRevision": 1,
+      "afterRevision": 2
+    },
+    "refused": {
+      "ok": false,
+      "error": {
+        "code": "cas_conflict",
+        "message": "路线 revision 已变化（期望 1，当前 2）——重读后再写",
+        "currentRevision": 2
+      }
+    }
+  }
+}

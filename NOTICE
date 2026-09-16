@@ -1,0 +1,11 @@
+PF3 Showcase
+Copyright 2026 Xiuyue Zhao (Elara)
+
+This distribution contains a public showcase, selected recorded evidence,
+and an independently implemented versioned-handoff example.
+It does not contain the complete PF3 implementation or its Git history.
+
+Except for docs/, the distributed files are licensed under Apache License 2.0.
+The text, recorded data, and images under docs/ are licensed under
+Creative Commons Attribution 4.0 International (CC BY 4.0).
+See LICENSE and docs/LICENSE-docs.md.

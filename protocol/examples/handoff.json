@@ -1,0 +1,107 @@
+{
+  "profile": "PF3 Handoff v0.1 draft",
+  "scope": "Synthetic trace of the included reference implementation. Receipt IDs and message wording are examples, not required formats.",
+  "initial": {
+    "summary": "已确定任务",
+    "nextStep": "完成第一次交接"
+  },
+  "steps": [
+    {
+      "action": "read",
+      "result": {
+        "revision": 1,
+        "summary": "已确定任务",
+        "nextStep": "完成第一次交接"
+      }
+    },
+    {
+      "action": "write",
+      "request": {
+        "expectedRevision": 1,
+        "summary": "A 完成第一步",
+        "nextStep": "B 读取最新进度",
+        "actor": "A"
+      },
+      "result": {
+        "ok": true,
+        "receipt": {
+          "id": "demo_receipt_1",
+          "actor": "A",
+          "beforeRevision": 1,
+          "afterRevision": 2
+        },
+        "state": {
+          "revision": 2,
+          "summary": "A 完成第一步",
+          "nextStep": "B 读取最新进度"
+        }
+      }
+    },
+    {
+      "action": "write",
+      "request": {
+        "expectedRevision": 1,
+        "summary": "B 的旧进度",
+        "nextStep": "不应覆盖 A",
+        "actor": "B"
+      },
+      "result": {
+        "ok": false,
+        "error": {
+          "code": "cas_conflict",
+          "expectedRevision": 1,
+          "currentRevision": 2,
+          "message": "状态已变化；重新读取后再决定怎样继续。"
+        }
+      }
+    },
+    {
+      "action": "read",
+      "result": {
+        "revision": 2,
+        "summary": "A 完成第一步",
+        "nextStep": "B 读取最新进度"
+      }
+    },
+    {
+      "action": "write",
+      "request": {
+        "expectedRevision": 2,
+        "summary": "A 完成第一步；B 接着完成",
+        "nextStep": "共同验收",
+        "actor": "B"
+      },
+      "result": {
+        "ok": true,
+        "receipt": {
+          "id": "demo_receipt_2",
+          "actor": "B",
+          "beforeRevision": 2,
+          "afterRevision": 3
+        },
+        "state": {
+          "revision": 3,
+          "summary": "A 完成第一步；B 接着完成",
+          "nextStep": "共同验收"
+        }
+      }
+    },
+    {
+      "action": "readReceipts",
+      "result": [
+        {
+          "id": "demo_receipt_1",
+          "actor": "A",
+          "beforeRevision": 1,
+          "afterRevision": 2
+        },
+        {
+          "id": "demo_receipt_2",
+          "actor": "B",
+          "beforeRevision": 2,
+          "afterRevision": 3
+        }
+      ]
+    }
+  ]
+}
