@@ -4,14 +4,14 @@
 
 ## 0.2.x: documentation revisions
 
-Changes in 0.2.x are limited to documentation revisions. Version 0.2.7 puts the collaboration entry first and clarifies the author’s independent role, while retaining the v0.2.3 contract semantics and v0.2.4 engineering checks. Collaboration discussions remain open. See the [engineering record](engineering-v0.2.4.md) and [collaboration process](../COLLABORATE.md#working-with-elara).
+Changes in 0.2.x are limited to documentation revisions. Version 0.2.8 replaces the README's synthetic illustration with an owner-authorized [MountainRS workflow snapshot](mountainrs.md), an original Chinese screenshot and a manually translated English reading view. The v0.2.3 contract semantics and v0.2.4 engineering checks remain the baseline. See the [engineering record](engineering-v0.2.4.md) and [collaboration process](../COLLABORATE.md#working-with-elara).
 
 ## Next evidence milestone: 0.3.x
 
-MountainRS is the author's remote-sensing research project. A future showcase update will use it to document a real project handoff with publicly inspectable outputs and an explanation of PF3's role. That update depends on the underlying research materials being ready for publication; there is no announced release date.
+The current MountainRS snapshot documents recorded workflow state. The 0.3.x milestone will connect an actual project handoff to publicly inspectable research outputs and explain PF3's role in producing them. That update depends on the underlying research materials being ready for publication; there is no announced release date.
 
 ## 中文
 
-0.2.x 只接文档修订。v0.2.7 将合作入口前移，并明确作者以个人身份承接合作，沿用 v0.2.3 的契约语义与 v0.2.4 的工程检查；合作沟通继续开放。详见[工程记录](engineering-v0.2.4.md)与[合作流程](../COLLABORATE.md)。
+0.2.x 只接文档修订。v0.2.8 用所有者授权公开的 [MountainRS 工作流快照](mountainrs.zh-CN.md)、真实中文界面截图和人工英文译文视图，替换 README 中的合成配图；沿用 v0.2.3 的契约语义与 v0.2.4 的工程检查。详见[工程记录](engineering-v0.2.4.md)与[合作流程](../COLLABORATE.md)。
 
-MountainRS 是作者的遥感研究项目。后续 0.3.x 的证据里程碑，是用可公开查看的真实产物，说明一次实际项目续接及 PF3 在其中承担的工作。更新时间取决于研究材料何时适合公开，目前没有发布日程。
+当前 MountainRS 快照展示已记录的工作流状态。0.3.x 的证据里程碑，是将一次实际项目续接与可公开查看的科研产物连接起来，说明 PF3 在其中承担的工作。更新时间取决于研究材料何时适合公开，目前没有发布日程。

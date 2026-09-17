@@ -1,0 +1,208 @@
+{
+  "snapshotDate": "2026-09-17",
+  "source": "Owner-authorized read of the live PF3 MountainRS project; selected presentation fields, not a PF3 API payload.",
+  "project": {
+    "id": "proj_6cbeea3266ff",
+    "title": "山地遥感物理基座",
+    "status": "abandoned",
+    "revision": 6
+  },
+  "counts": {
+    "planned": 10,
+    "active": 0,
+    "paused": 1,
+    "done": 23,
+    "failed": 2
+  },
+  "routes": [
+    {
+      "id": "rt_f634f0ab72fb",
+      "revision": 100,
+      "nodes": [
+        {
+          "id": "nd_8c46eb6714d0",
+          "title": "START｜山地遥感物理基座",
+          "state": "done"
+        },
+        {
+          "id": "nd_d4726bdf25ff",
+          "title": "Stage 1｜GeoTIFF / 栅格体检闭环",
+          "state": "done"
+        },
+        {
+          "id": "nd_565dbe24e986",
+          "title": "Stage 2｜DEM 地形状态闭环",
+          "state": "done"
+        },
+        {
+          "id": "nd_da7b1ad1ef2a",
+          "title": "Stage 3｜DEM + 影像对齐闭环",
+          "state": "done"
+        },
+        {
+          "id": "nd_e3cb6841c350",
+          "title": "Stage 4｜非可微地形辐射 toy model",
+          "state": "done"
+        },
+        {
+          "id": "nd_7c71981fa1a5",
+          "title": "Stage 5｜Gradient-friendly 正向模型改写与梯度校验",
+          "state": "done"
+        },
+        {
+          "id": "nd_8c51859520e5",
+          "title": "Stage 6｜可微反演 toy model + 置信度 / 不确定性",
+          "state": "done"
+        },
+        {
+          "id": "nd_7c3a73bde736",
+          "title": "Stage 6.5.0｜Stage 3 数据源与真实观测入口审计",
+          "state": "done"
+        },
+        {
+          "id": "nd_45939acfb26f",
+          "title": "Stage 6.5.1-A｜clean single-scene L2 SR 导出与封存",
+          "state": "done"
+        },
+        {
+          "id": "nd_c16df9055936",
+          "title": "Stage 6.5.2-A｜clean single-scene 本地健康检查",
+          "state": "done"
+        },
+        {
+          "id": "nd_323305e35229",
+          "title": "Stage 6.5.1-B｜shadow-risk single-scene 简化导出",
+          "state": "done"
+        },
+        {
+          "id": "nd_4faad7d485ff",
+          "title": "Stage 6.5.2-B｜shadow-risk 本地体检与封存",
+          "state": "done"
+        },
+        {
+          "id": "nd_5c4de72b0e60",
+          "title": "Stage 6.5.3-B｜真实反射率 shadow / near-zero 机制压力测试",
+          "state": "done"
+        },
+        {
+          "id": "nd_f3a98903e084",
+          "title": "Stage 6.5.0-X｜复杂 GEE shadow-risk 预筛审计",
+          "state": "failed",
+          "stateReason": "失败结论：停止继续修复杂 audit JS；GEE 只做低太阳角、coverage 与 QA 简筛，near-zero / shadow ratio 回到本地 Python 判断。"
+        },
+        {
+          "id": "nd_1a8f9d2b453f",
+          "title": "Stage 6.5.1-X｜大 ROI + 0.95 单景 full-cover 强约束",
+          "state": "failed",
+          "stateReason": "失败结论：当前数据窗下不存在满足强约束的单景；该约束不再承担最终数据入口。"
+        },
+        {
+          "id": "nd_7f2957ff1de7",
+          "title": "Stage 6.5.1-D｜缩小 ROI 的快速调试路线",
+          "state": "paused",
+          "stateReason": "暂停结论：仅在导出器或本地读取链出现新的技术故障时恢复。"
+        },
+        {
+          "id": "nd_3ec5c6b51e2c",
+          "title": "Stage 7.0｜修补前真实弱闭环 baseline 与评测口径锁定",
+          "state": "done"
+        },
+        {
+          "id": "nd_a5842cfa87de",
+          "title": "Stage 7.1｜单样区逐景观测栈与 L0 证据栈原型",
+          "state": "done"
+        },
+        {
+          "id": "nd_0bbf0f67117a",
+          "title": "Stage 7.1-R｜L0 观测证据成员与支持语义补全",
+          "state": "done"
+        },
+        {
+          "id": "nd_8abf61f1c4f7",
+          "title": "Stage 7.2｜修补前 baseline 拟合与诊断配置",
+          "state": "done"
+        },
+        {
+          "id": "nd_38d128c40d90",
+          "title": "Stage 7.3｜单 ROI 同域空间阻断与轮换留一诊断",
+          "state": "done"
+        },
+        {
+          "id": "nd_095e71a9eccf",
+          "title": "Stage 7.4｜修补前 residual 分层、可靠性代理与无支持外推暴露基线",
+          "state": "done"
+        },
+        {
+          "id": "nd_acc2d6699c89",
+          "title": "Stage 7.5｜G/X/Z/N/E 身份边界、Gauge 与可辨识性工具箱",
+          "state": "done"
+        },
+        {
+          "id": "nd_5fc273b560f7",
+          "title": "Stage 7.6｜光学 L2 算子资格化：漫射、邻接与大气边界",
+          "state": "done"
+        },
+        {
+          "id": "nd_716cb550b7a2",
+          "title": "Stage 7.7｜L1 状态激活 Gate 与几何失效传播首验",
+          "state": "done"
+        },
+        {
+          "id": "nd_89bdfb553afb",
+          "title": "Stage 7.8｜多域 L0 证据与独立参考的结果盲冻结",
+          "state": "done"
+        },
+        {
+          "id": "nd_59cb52139f59",
+          "title": "Stage 7.9｜单 ROI L3 证据栈反演与物理自监督最小闭环",
+          "state": "planned"
+        },
+        {
+          "id": "nd_321120bdf97e",
+          "title": "Stage 7.10｜双轨验证：同域空间诊断与跨域断裂",
+          "state": "planned"
+        },
+        {
+          "id": "nd_8372dbe888c3",
+          "title": "Stage 7.11｜输出不确定性校准、选择性风险与 OOD",
+          "state": "planned"
+        },
+        {
+          "id": "nd_05bf6769e3b1",
+          "title": "Stage 8.0｜SAR L0 证据与斜距几何算子",
+          "state": "planned"
+        },
+        {
+          "id": "nd_0bbfead06af5",
+          "title": "Stage 8.1｜SAR 辐射算子、可微资格与状态激活",
+          "state": "planned"
+        },
+        {
+          "id": "nd_69329c48dbb8",
+          "title": "Stage 8.2｜InSAR readiness、LOS 形变观测与 L1 动态状态",
+          "state": "planned"
+        },
+        {
+          "id": "nd_93a85c0e0f72",
+          "title": "Stage 8.3｜光学-SAR/InSAR 共享状态联合闭环",
+          "state": "planned"
+        },
+        {
+          "id": "nd_9e07fccbaa0f",
+          "title": "Stage 8.4｜L4 时空软先验与快慢变量熔断",
+          "state": "planned"
+        },
+        {
+          "id": "nd_e80b059d0066",
+          "title": "Stage 9.0｜核心系统工程尺度与计算边界",
+          "state": "planned"
+        },
+        {
+          "id": "nd_031932e6136a",
+          "title": "Stage 9.1｜L5 产品、任务头与 v3.1 分项架构验收",
+          "state": "planned"
+        }
+      ]
+    }
+  ]
+}

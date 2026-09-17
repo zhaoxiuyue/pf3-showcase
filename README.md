@@ -20,13 +20,17 @@ PF3 helps a fresh AI window continue a long-running project: find the current ta
 
 The project model organizes work into routes with five node states. Executed attempts retain their conclusions; rules have an explicit scope; a handoff brings together the current task, applicable constraints and the version used for write-back. The [design notes](docs/design.md) explain these choices and their tradeoffs.
 
-This showcase pairs those design notes with a small, runnable **handoff protocol draft, JSON Schema, independent reference implementation and contract tests**. Its optimistic version check demonstrates one useful property: an older window's write cannot silently overwrite newer shared state.
+### A real project: MountainRS
 
-![A synthetic project view from the complete PF3 implementation](docs/screenshots/demo-tree.png)
+MountainRS is the author's remote-sensing research project. Its PF3 tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can read those conclusions before deciding what to try next.
 
-*Product view using a synthetic PF3 project. See [scope and evidence](#scope-and-evidence).*
+![MountainRS: two failed approaches retain their conclusions, a debugging route has a specific resume condition, and downstream work is done](docs/screenshots/mountainrs-tree.en.svg)
+
+*Manually translated reading view of real records, September 17, 2026. The product interface is Chinese: [original screenshot](docs/screenshots/mountainrs-tree.zh-CN.png) · [case and recorded tree](docs/mountainrs.md).*
 
 ## Run the example
+
+This showcase also includes a small, runnable **handoff protocol draft, JSON Schema, independent reference implementation and contract tests**. Its optimistic version check demonstrates one useful property: an older window's write cannot silently overwrite newer shared state.
 
 Requires **Node.js ≥ 24**. The demo and contract tests use Node built-ins and run locally.
 
@@ -56,8 +60,9 @@ npm run verify
 
 ## Explore the repository
 
-The showcase package is **0.2.7**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.8**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
+- [MountainRS case](docs/mountainrs.md): a real project tree, its original screenshot, translated view and recorded node states.
 - [Design notes](docs/design.md): five states, route versions, executed attempts, rule scopes and handoff context.
 - [Handoff protocol v0.1 draft](protocol/README.md): read, write, version checks, receipts and conflict recovery.
 - [JSON Schema](protocol/handoff.schema.json), [a standalone message](protocol/examples/state.json) and [an exchange trace](protocol/examples/exchange-trace.json): individual payloads and the sequence between them.
@@ -65,14 +70,10 @@ The showcase package is **0.2.7**; the protocol remains **PF3 Handoff v0.1 draft
 - [Reusable contract suite](conformance/handoff.mjs): exercise your own synchronous JavaScript implementation against the same checks.
 - [Recorded evidence and its scope](docs/evidence.md): separate reproducible example behavior from author-recorded product demonstrations.
 
-![Synthetic command-layer returns: the first write succeeds and the stale write is refused](docs/screenshots/cas-conflict.png)
-
-*Complete PF3 command returns from September 12, 2026, arranged side by side. [Recorded payloads and context](docs/evidence.md).*
-
 ## Scope and evidence
 
 - **Runnable here:** PF3 Handoff v0.1 draft, its schema, an independent in-memory implementation and bounded contract tests. These cover the published handoff behavior; transport, persistence, authorization and direct PF3 service integration require a separate implementation and evaluation.
-- **Described here:** the design notes and synthetic screenshots explain the complete PF3 project model. The full implementation and operating data remain private; the runnable example implements the small handoff contract. Passing its suite is evidence for the cases it executes.
+- **Described here:** the design notes explain the complete PF3 project model, and the owner-authorized MountainRS snapshot shows a real project's recorded workflow. The full implementation remains private; the runnable example implements the small handoff contract. Passing its suite is evidence for the cases it executes.
 - **Experience so far:** PF3 is used in the author's multi-project workflow with multiple AI clients. [Evidence and limitations](docs/evidence.md) separate author-recorded experience from reproducible checks. Team and enterprise adoption remain matters for a concrete pilot.
 
 ## License

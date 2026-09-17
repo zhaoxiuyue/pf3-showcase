@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="900" viewBox="0 0 1100 900" role="img" aria-labelledby="title desc">
+  <title id="title">MountainRS: failed attempts and a paused debugging route stay visible</title>
+  <desc id="desc">A manually translated reading view of selected real PF3 records. Stage 6.5.0-X failed and moved detailed shadow checks out of GEE into local Python. Stage 6.5.1-X failed because no scene in the current data window met its 95 percent coverage constraint. Stage 6.5.1-D is paused and may resume only for a new exporter or local reading fault. Stages 7.0 and 7.1-R are done. This is a documentation translation; the original product interface is Chinese.</desc>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; fill: #302f29; }
+    .eyebrow { font-size: 13px; font-weight: 650; letter-spacing: 1.5px; }
+    .heading { font-size: 27px; font-weight: 700; }
+    .body { font-size: 17px; }
+    .muted { fill: #77776c; }
+    .green { fill: #466d51; }
+    .amber { fill: #997335; }
+    .red { fill: #a3543c; }
+    .node { font-size: 18px; font-weight: 650; }
+  </style>
+  <rect width="1100" height="900" fill="#faf9f5" rx="18"/>
+  <text x="36" y="42" class="eyebrow">PF3 · MOUNTAINRS</text>
+  <text x="1064" y="42" text-anchor="end" class="eyebrow muted">TRANSLATED RECORD VIEW</text>
+  <path d="M36 64H1064" stroke="#deddd4"/>
+  <text x="36" y="109" class="heading">Failed attempts stay in the project.</text>
+  <text x="36" y="140" class="body muted">A real remote-sensing project · route revision 100 · snapshot: 2026-09-17</text>
+  <text x="36" y="177" class="body"><tspan font-weight="700">36 nodes</tspan><tspan class="muted" dx="16">23 done · 2 failed · 1 paused · 10 planned · 0 active</tspan></text>
+
+  <path d="M58 222V268" stroke="#9eada0" stroke-width="2"/>
+  <path d="M58 286V699" stroke="#c5b894" stroke-width="2" stroke-dasharray="5 6"/>
+  <path d="M58 716V810" stroke="#9eada0" stroke-width="2"/>
+  <circle cx="58" cy="222" r="15" fill="#466d51"/>
+  <path d="m51 222 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.2"/>
+  <text x="88" y="216" class="eyebrow green">DONE · STAGE 6.5.3-B</text>
+  <text x="88" y="244" class="node">Real-reflectance shadow / near-zero stress test</text>
+
+  <circle cx="58" cy="286" r="15" fill="#faf9f5" stroke="#aa8840" stroke-width="2"/>
+  <path d="M54 280V292M62 280V292" stroke="#aa8840" stroke-width="3"/>
+  <text x="88" y="281" class="eyebrow amber">PAUSED · STAGE 6.5.1-D</text>
+  <text x="88" y="311" class="node">Smaller-ROI debugging route</text>
+  <rect x="88" y="328" width="976" height="68" rx="10" fill="#f3eddc"/>
+  <text x="105" y="355" class="body">Resume only if a new technical fault occurs in the exporter</text>
+  <text x="105" y="381" class="body">or the local reading pipeline.</text>
+
+  <text x="102" y="433" class="eyebrow muted">TWO PREVIOUS ATTEMPTS · BOTH FAILED</text>
+  <rect x="88" y="451" width="976" height="96" rx="10" fill="#f4e7df"/>
+  <text x="105" y="478" class="node red">6.5.0-X · Complex GEE shadow-risk prescreen</text>
+  <text x="105" y="506" class="body">Stop patching the complex audit script. Keep GEE screening simple;</text>
+  <text x="105" y="532" class="body">assess near-zero and shadow ratios locally in Python.</text>
+
+  <rect x="88" y="565" width="976" height="96" rx="10" fill="#f4e7df"/>
+  <text x="105" y="592" class="node red">6.5.1-X · Large ROI + 95% single-scene coverage</text>
+  <text x="105" y="620" class="body">No scene in the current data window meets this constraint.</text>
+  <text x="105" y="646" class="body">It no longer defines the final data entry route.</text>
+
+  <circle cx="58" cy="716" r="15" fill="#466d51"/>
+  <path d="m51 716 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.2"/>
+  <text x="88" y="710" class="eyebrow green">DONE · STAGE 7.0</text>
+  <text x="88" y="738" class="node">Baseline and evaluation criteria locked</text>
+  <circle cx="58" cy="790" r="15" fill="#466d51"/>
+  <path d="m51 790 5 5 9-11" fill="none" stroke="#fff" stroke-width="2.2"/>
+  <text x="88" y="784" class="eyebrow green">DONE · STAGE 7.1-R</text>
+  <text x="88" y="812" class="node">Observation evidence membership and support semantics completed</text>
+
+  <path d="M36 841H1064" stroke="#deddd4"/>
+  <text x="36" y="873" font-size="14" class="muted">Manually translated and abridged from the Chinese PF3 records. Original screenshot linked in the README.</text>
+</svg>
