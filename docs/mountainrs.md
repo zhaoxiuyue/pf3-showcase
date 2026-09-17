@@ -4,6 +4,12 @@
 
 MountainRS is Elara's remote-sensing research project. Its PF3 tree records the work that ran, the approaches that failed and the conditions for resuming work. The images below use its actual records, read on **September 17, 2026**, with the owner's permission to publish this project tree.
 
+## What a state label leaves out
+
+A new AI window sees Stage 6.5.1-D marked `paused`. That label alone does not say whether to resume it. The recorded reason supplies the condition: return only if a new technical fault occurs in the exporter or local reading pipeline. The two earlier failed attempts also retain their conclusions, so the next window can inspect why those approaches stopped.
+
+This case shows the information available at a handoff: a state, its reason and a condition for continuing. The records below make that concrete.
+
 ## Read one part of the tree
 
 ![Manually translated MountainRS records: two failed approaches, a paused debugging route and completed downstream work](screenshots/mountainrs-tree.en.svg)

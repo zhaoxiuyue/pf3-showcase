@@ -2,27 +2,25 @@
 
 **Many AI windows. One shared project state.**
 
-[中文](README.zh-CN.md) · **[Discuss your workflow](COLLABORATE.md#working-with-elara)** · [Design notes](docs/design.md) · [Run the example](#run-the-example)
+[中文](README.zh-CN.md) · [Real case](#a-real-project-mountainrs) · [Run the example](#run-the-example) · [Design notes](docs/design.md)
 
-I'm **Elara (Xiuyue Zhao)**, PF3's designer and builder. I offer AI collaboration workflow design, MCP and tool integration, and custom prototype development as an independent developer.
+PF3 is a project-state system for long-running work with AI. It keeps the current task, previous decisions, failed attempts and conditions for continuing in one shared record.
 
-## Collaborate
+This repository contains **design notes, a real MountainRS workflow snapshot, and an independent handoff example you can run locally**, with a protocol draft, JSON Schema and contract tests.
 
-Bring a workflow that repeatedly loses context between AI windows, needs an existing tool connected, or produces results that are difficult to hand off and verify.
+## The problem at handoff
 
-Start with one **focused paid pilot**: a runnable prototype for one workflow, with a defined scope and acceptance criteria. Describe a recent sticking point; we establish fit, then agree on a written scope, quote and schedule before work begins.
+The code and reports may still be there when the AI window changes. Before continuing, the new window also needs to establish:
 
-**[Discuss your workflow](COLLABORATE.md#working-with-elara)** · **[XiuyueZhao@outlook.com](mailto:XiuyueZhao@outlook.com)**
+- Which task is current, and which paths have already been tried?
+- Why did an earlier attempt stop, and what would justify returning to it?
+- Which constraints apply, and is the state it read still current when it writes back?
 
-## What PF3 shows
+When these decisions are scattered through chat, the next window has to reconstruct them. PF3 records them with the relevant work: routes organize tasks, executed attempts retain their conclusions, rules have an explicit scope, and a handoff carries the current context and write-back version. The [design notes](docs/design.md) explain these choices and their tradeoffs.
 
-PF3 helps a fresh AI window continue a long-running project: find the current task, understand earlier decisions and failed attempts, and leave results the next window can use.
+## A real project: MountainRS
 
-The project model organizes work into routes with five node states. Executed attempts retain their conclusions; rules have an explicit scope; a handoff brings together the current task, applicable constraints and the version used for write-back. The [design notes](docs/design.md) explain these choices and their tradeoffs.
-
-### A real project: MountainRS
-
-MountainRS is the author's remote-sensing research project. Its PF3 tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can read those conclusions before deciding what to try next.
+MountainRS is a remote-sensing research project managed with PF3. Its tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can read those conclusions before deciding what to try next.
 
 ![MountainRS: two failed approaches retain their conclusions, a debugging route has a specific resume condition, and downstream work is done](docs/screenshots/mountainrs-tree.en.svg)
 
@@ -30,7 +28,7 @@ MountainRS is the author's remote-sensing research project. Its PF3 tree retains
 
 ## Run the example
 
-This showcase also includes a small, runnable **handoff protocol draft, JSON Schema, independent reference implementation and contract tests**. Its optimistic version check demonstrates one useful property: an older window's write cannot silently overwrite newer shared state.
+Run two clients against one shared state. The first write succeeds, a second write from the old version is refused, and that client rereads before continuing. This independent example implements the small handoff contract published here.
 
 Requires **Node.js ≥ 24**. The demo and contract tests use Node built-ins and run locally.
 
@@ -60,7 +58,7 @@ npm run verify
 
 ## Explore the repository
 
-The showcase package is **0.2.8**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.9**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
 - [MountainRS case](docs/mountainrs.md): a real project tree, its original screenshot, translated view and recorded node states.
 - [Design notes](docs/design.md): five states, route versions, executed attempts, rule scopes and handoff context.
@@ -74,8 +72,10 @@ The showcase package is **0.2.8**; the protocol remains **PF3 Handoff v0.1 draft
 
 - **Runnable here:** PF3 Handoff v0.1 draft, its schema, an independent in-memory implementation and bounded contract tests. These cover the published handoff behavior; transport, persistence, authorization and direct PF3 service integration require a separate implementation and evaluation.
 - **Described here:** the design notes explain the complete PF3 project model, and the owner-authorized MountainRS snapshot shows a real project's recorded workflow. The full implementation remains private; the runnable example implements the small handoff contract. Passing its suite is evidence for the cases it executes.
-- **Experience so far:** PF3 is used in the author's multi-project workflow with multiple AI clients. [Evidence and limitations](docs/evidence.md) separate author-recorded experience from reproducible checks. Team and enterprise adoption remain matters for a concrete pilot.
+- **Experience so far:** PF3 is used in the author's multi-project workflow with multiple AI clients. [Evidence and limitations](docs/evidence.md) separate author-recorded experience from reproducible checks.
 
 ## License
 
 The distributed protocol, schema, code and tests outside `docs/` use [Apache-2.0](LICENSE). Materials inside `docs/` use [CC BY 4.0](docs/LICENSE-docs.md). See [NOTICE](NOTICE). Future evidence milestones are described in the [roadmap](docs/roadmap.md).
+
+Designed and built by **Elara (Xiuyue Zhao)**, an independent developer. [Contact and collaboration](COLLABORATE.md#working-with-elara).

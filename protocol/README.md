@@ -48,7 +48,7 @@ Passing the suite is evidence only for the cases it runs. It does not establish 
 
 ## Versions and examples
 
-**Showcase 0.2.8** and **PF3 Handoff v0.1 draft** are separate versions. The [v0.2.2 audit](../docs/contract-audit-v0.2.2.md) maps all eight clauses to checks and records the bounded mutation audit; the [v0.2.3 control check](../docs/contract-audit-v0.2.3.md) adds acceptance of frozen detached outputs. The [v0.2.4 engineering record](../docs/engineering-v0.2.4.md) covers the CI matrix, schema/examples validation and manifest verification. The behavioral contract, reference semantics and schema remain unchanged.
+**Showcase 0.2.9** and **PF3 Handoff v0.1 draft** are separate versions. The [v0.2.2 audit](../docs/contract-audit-v0.2.2.md) maps all eight clauses to checks and records the bounded mutation audit; the [v0.2.3 control check](../docs/contract-audit-v0.2.3.md) adds acceptance of frozen detached outputs. The [v0.2.4 engineering record](../docs/engineering-v0.2.4.md) covers the CI matrix, schema/examples validation and manifest verification. The behavioral contract, reference semantics and schema remain unchanged.
 
 The schema `$id` is pinned to `https://raw.githubusercontent.com/zhaoxiuyue/pf3-showcase/v0.2.1/protocol/handoff.schema.json`. Changes to this schema receive a new release tag and `$id`; published schema identities are not overwritten.
 
