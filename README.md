@@ -2,7 +2,7 @@
 
 **Many AI windows. One shared project state.**
 
-[中文](README.zh-CN.md) · [Real case](#a-real-project-mountainrs) · [Run the example](#run-the-example) · [Design notes](docs/design.md)
+[中文](README.zh-CN.md) · [Real case](#a-real-project-mountainrs) · [Protocol demo](#protocol-demo) · [Design notes](docs/design.md)
 
 PF3 is a project-state system for long-running work with AI. It keeps the current task, previous decisions, failed attempts and conditions for continuing in one shared record.
 
@@ -20,15 +20,17 @@ When these decisions are scattered through chat, the next window has to reconstr
 
 ## A real project: MountainRS
 
+**PF3 walkthrough:** these are real product records; the runnable protocol demo below is a separate example.
+
 MountainRS is a remote-sensing research project managed with PF3. Its tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can read those conclusions before deciding what to try next.
 
 ![MountainRS: two failed approaches retain their conclusions, a debugging route has a specific resume condition, and downstream work is done](docs/screenshots/mountainrs-tree.en.svg)
 
 *Manually translated reading view of real records, September 17, 2026. The product interface is Chinese: [original screenshot](docs/screenshots/mountainrs-tree.zh-CN.png) · [case and recorded tree](docs/mountainrs.md).*
 
-## Run the example
+## Protocol demo
 
-Run two clients against one shared state. The first write succeeds, a second write from the old version is refused, and that client rereads before continuing. This independent example implements the small handoff contract published here.
+Simulate two clients against one shared state in one process. No model, MCP connection or complete PF3 service is involved. The first write succeeds, a second write from the old version is refused, and that client rereads before continuing. This independent example implements the small handoff contract published here.
 
 Requires **Node.js ≥ 24**. The demo and contract tests use Node built-ins and run locally.
 
@@ -39,11 +41,13 @@ npm run demo
 npm test
 ```
 
-The test command runs the same six contract cases against the reference implementation and a frozen-output positive control. See the [v0.2.3 control check](docs/contract-audit-v0.2.3.md).
+`npm run demo` prints English throughout, including the task text and conflict explanation. For Chinese, run `npm run demo:zh`. Both commands use the same reference implementation.
+
+The test command runs two CLI language checks and the same six contract cases against the reference implementation and a frozen-output positive control. See the [v0.2.3 control check](docs/contract-audit-v0.2.3.md).
 
 Two clients read revision 1. A writes successfully and advances the state to revision 2. B's stale write is refused with `cas_conflict`, leaving the state unchanged. B rereads the new state and continues to revision 3.
 
-The example keeps its data in memory for the lifetime of the process.
+The example keeps its data in memory for the lifetime of the process. Full PF3 self-installation and product trials are not available from this repository. The walkthrough documents product behavior; it does not grant access to the private service.
 
 ## Engineering checks
 
@@ -58,7 +62,7 @@ npm run verify
 
 ## Explore the repository
 
-The showcase package is **0.2.9**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.10**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
 - [MountainRS case](docs/mountainrs.md): a real project tree, its original screenshot, translated view and recorded node states.
 - [Design notes](docs/design.md): five states, route versions, executed attempts, rule scopes and handoff context.

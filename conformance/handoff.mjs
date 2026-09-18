@@ -9,7 +9,7 @@ export function registerHandoffContractTests(createHandoff) {
     expectedRevision, actor, summary: `${actor} 的进度`, nextStep: '接着读最新状态',
   });
 
-  test('两个客户端持有同一版本时，后写入不会覆盖先写入的结果或产生成功回执', () => {
+  test('A stale write neither overwrites state nor creates a receipt', () => {
     const handoff = fresh();
     const a = handoff.read();
     const b = handoff.read();
@@ -39,7 +39,7 @@ export function registerHandoffContractTests(createHandoff) {
     assert.deepEqual(handoff.readReceipts(), receiptsBeforeConflict);
   });
 
-  test('被拒绝的客户端重读后，可以根据新进度续接，回执按顺序衔接', () => {
+  test('Rereading enables continuation with contiguous receipts', () => {
     const handoff = fresh();
     const first = write(handoff, 1);
     assert.equal(write(handoff, 1, 'B').ok, false);
@@ -64,7 +64,7 @@ export function registerHandoffContractTests(createHandoff) {
     assert.equal(new Set(ids).size, ids.length);
   });
 
-  test('调用者修改读取快照或返回回执，不能绕过写入口改变共享状态', () => {
+  test('Mutation attempts on returned objects cannot change shared state', () => {
     const handoff = fresh();
     const assertDetached = (mutate, expectedState, expectedReceipts) => {
       try {
@@ -96,7 +96,7 @@ export function registerHandoffContractTests(createHandoff) {
     }
   });
 
-  test('每一次无效写入都保持完整状态与回执不变', () => {
+  test('Every invalid write leaves complete state and receipts unchanged', () => {
     const handoff = fresh();
     // Clone the baseline independently: a faulty read() may expose shared state.
     const assertRejectedWithoutMutation = request => {
@@ -116,7 +116,7 @@ export function registerHandoffContractTests(createHandoff) {
     }
   });
 
-  test('初始化要求非空的摘要与下一步', () => {
+  test('Initialization requires nonempty summary and nextStep', () => {
     for (const field of ['summary', 'nextStep']) {
       for (const invalidText of ['', ' \t\n', undefined, null, 42]) {
         assert.throws(() => createHandoff({ summary: '已确定任务', nextStep: '验证第一次交接', [field]: invalidText }), TypeError);
@@ -127,7 +127,7 @@ export function registerHandoffContractTests(createHandoff) {
     assert.deepEqual(handoff.readReceipts(), []);
   });
 
-  test('两个独立示例不会共享状态', () => {
+  test('Independent instances do not share state', () => {
     const first = fresh();
     const second = fresh();
     write(first, 1);

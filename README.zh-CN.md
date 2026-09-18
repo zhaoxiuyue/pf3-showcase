@@ -35,7 +35,7 @@ MountainRS（山地遥感物理基座）是用 PF3 管理的遥感研究项目�
 ```sh
 git clone https://github.com/zhaoxiuyue/pf3-showcase.git
 cd pf3-showcase
-npm run demo
+npm run demo:zh
 npm test
 ```
 
@@ -48,7 +48,9 @@ npm test
 3. B 带旧 revision 1 写入，被 `cas_conflict` 拒绝，原状态保持不变。
 4. B 重读 revision 2，理解 A 的进展后继续，状态变为 revision 3。
 
-示例数据保存在内存里，随进程结束。
+`npm run demo` 默认输出完整英文；`npm run demo:zh` 输出中文，两者共用同一个参考实现。
+
+这是 Protocol demo（独立协议示例）：一个进程模拟两个客户端，不连接模型、MCP 或完整 PF3。示例数据保存在内存里，随进程结束。上方真实项目材料属于 PF3 walkthrough（产品演示）；本仓库目前不提供完整产品安装或试用访问。
 
 ## 工程检查
 
@@ -63,7 +65,7 @@ npm run verify
 
 ## 从哪里开始看
 
-展示包版本为 **0.2.9**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
+展示包版本为 **0.2.10**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
 
 | 内容 | 可以拿来做什么 |
 |---|---|
