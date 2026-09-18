@@ -1,0 +1,52 @@
+{
+  "readDate": "2026-09-18",
+  "kind": "Selected presentation fields from real PF3 reads; not a complete handoff or a public API format.",
+  "scope": "Project fields and the three already-public node conclusions only. Global/project rule text, other node details and asset locations are omitted.",
+  "project": {
+    "id": "proj_6cbeea3266ff",
+    "title": "山地遥感物理基座",
+    "revision": 6,
+    "status": "abandoned"
+  },
+  "resume": {
+    "source": "pf3_resume",
+    "current": {
+      "state": "no_active_node",
+      "note": "主线当前没有 active 节点——不要擅自开工；与所有者确认后用 pf3_transition_node 激活"
+    },
+    "nextPlanned": {
+      "nodeId": "nd_59cb52139f59",
+      "title": "Stage 7.9｜单 ROI L3 证据栈反演与物理自监督最小闭环"
+    },
+    "route": {
+      "id": "rt_f634f0ab72fb",
+      "revision": 100
+    }
+  },
+  "nodeReads": [
+    {
+      "source": "pf3_read_node",
+      "id": "nd_f3a98903e084",
+      "title": "Stage 6.5.0-X｜复杂 GEE shadow-risk 预筛审计",
+      "state": "failed",
+      "stateReason": "失败结论：停止继续修复杂 audit JS；GEE 只做低太阳角、coverage 与 QA 简筛，near-zero / shadow ratio 回到本地 Python 判断。",
+      "routeRevision": 100
+    },
+    {
+      "source": "pf3_read_node",
+      "id": "nd_1a8f9d2b453f",
+      "title": "Stage 6.5.1-X｜大 ROI + 0.95 单景 full-cover 强约束",
+      "state": "failed",
+      "stateReason": "失败结论：当前数据窗下不存在满足强约束的单景；该约束不再承担最终数据入口。",
+      "routeRevision": 100
+    },
+    {
+      "source": "pf3_read_node",
+      "id": "nd_7f2957ff1de7",
+      "title": "Stage 6.5.1-D｜缩小 ROI 的快速调试路线",
+      "state": "paused",
+      "stateReason": "暂停结论：仅在导出器或本地读取链出现新的技术故障时恢复。",
+      "routeRevision": 100
+    }
+  ]
+}

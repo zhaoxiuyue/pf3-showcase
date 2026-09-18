@@ -10,6 +10,18 @@ MountainRS（山地遥感物理基座）是 Elara 的遥感研究项目。PF3 �
 
 这个案例展示接手时可以读到的信息：状态、原因，以及继续工作的条件。下面是具体记录。
 
+## 从续接包读到原始记录
+
+**2026 年 9 月 18 日**实时读取返回项目版本 **6**、路线版本 **100**，与已公开的项目树快照一致。下图是该调用与随后三次节点读取的精选文档视图：
+
+![MountainRS：先读当前续接状态，再读取三个真实节点保留的原因](screenshots/mountainrs-handoff.zh-CN.svg)
+
+1. `pf3_resume` 返回 `no_active_node`。项目部分记录生命周期为 `abandoned`，项目由所有者停工。顺序上首个 planned 节点是 Stage 7.9；这只是路线位置，不是激活许可。
+2. 路线标出了失败与暂停节点。随后三次 `pf3_read_node` 取得原因原文：两次失败结论与调试路线的恢复条件。
+3. 续接包提供需要版本校验的写入所用的项目、路线版本。真正写回前仍须重读当前状态，不能拿这张日期快照里的数字作为当前凭据。
+
+[精选原始字段](mountainrs-handoff.json)保留来源操作、节点 ID、原因原文与版本。图中将几次读取组合为文档视图，并非单份原始续接包、完整界面截图或模型完成工作的调用实录。公开摘录不包含规则正文和资产位置。
+
 ## 先看树上的一段
 
 ![MountainRS 真实 PF3 界面：保留两次失败尝试，调试路线暂停，后续主线继续完成](screenshots/mountainrs-tree.zh-CN.png)
@@ -39,4 +51,4 @@ MountainRS（山地遥感物理基座）是 Elara 的遥感研究项目。PF3 �
 
 [项目树记录摘录](mountainrs-tree.json)列出全部 36 个节点的 ID、标题和状态，并保留两条失败节点与一条暂停节点的原因原文。它从本次获授权的实时读取中精选展示字段，不是对外定义的 PF3 API 返回格式。
 
-这是作者记录的真实项目工作流。节点 done 表示该项工作已关闭，不等于科研假设得到支持。科研仓库及底层产物在本次快照时仍私有，因此读者目前能检查的是这份工作流记录，尚不能据此独立重跑科研过程。后续研究产物公开的里程碑见[路线图](roadmap.md#中文)。
+这是作者记录的真实项目工作流。节点 done 表示该项工作已关闭，不等于科研假设得到支持。[MountainRS 科研仓库](https://github.com/zhaoxiuyue/MountainRS)已于 2026 年 9 月 18 日公开，可直接查看报告、[Stage 7.6 精选结果表](https://github.com/zhaoxiuyue/MountainRS/tree/main/stage7_real_weak_closure/stage7_6_optical_operator/outputs)与[项目管理复盘](https://github.com/zhaoxiuyue/MountainRS/blob/main/docs/one-tree-three-clients.md)。多数大型输入与产物仍不随 Git 分发，因此仅靠仓库尚不能端到端重跑科研全过程。[路线图](roadmap.md#中文)区分本次材料公开与未来新客户端续接的实测证据。

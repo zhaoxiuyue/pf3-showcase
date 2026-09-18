@@ -74,6 +74,16 @@ PF3 presents acceptance criteria and handoff requirements so this session can re
 
 Code, reports and other assets remain in their own locations and can be opened through their references as needed.
 
+## What is assembled, and what still needs a reader
+
+People and agents supply progress, decisions, evidence and references during the work. The continuity compiler assembles a read-time view from that stored state. It does not infer unrecorded decisions from chat or certify the truth of a reported result.
+
+The view includes active global rules, project rules and pending constraints targeting the current node. For that node's progress, it selects the latest handoff event (progress or problem), decision and evidence. Other history stays available through node reads. Project asset locations are supplied as claims for the reader to verify.
+
+The displayed token count is an estimate of the package size, not a token budget or an automatic limit. Explicit scopes and selected progress help organize the context; they do not guarantee a small package for every project.
+
+A handoff note can also preserve reasons, rules and history. PF3 puts their organization and versioned writes into a shared workflow, so each new window can start from the recorded project state. In the [MountainRS example](mountainrs.md#from-the-handoff-to-the-records), that means reading the handoff and then opening the relevant failed and paused nodes, without reconstructing those conclusions from an earlier chat.
+
 ## What to evaluate in a pilot
 
 Take one real workflow and observe a handoff: can a fresh client identify the current task and a relevant earlier decision or failure; find the required inputs; complete a defined action; and leave a result the next client can verify? Agree on the acceptance criteria for that workflow before implementation.

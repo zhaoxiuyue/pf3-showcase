@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="890" viewBox="0 0 1100 890" role="img" aria-labelledby="title desc">
+<style>text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,'PingFang SC',sans-serif;fill:#302f29}.muted{fill:#737467}.small{font-size:15px}.body{font-size:19px}.label{font-size:13px;font-weight:700;letter-spacing:1.1px}.head{font-size:30px;font-weight:700}.bold{font-weight:650}.red{fill:#a3543c}.green{fill:#466d51}.amber{fill:#936f30}</style>
+<rect width="1100" height="890" rx="18" fill="#faf9f5"/>
+<title id="title">新 AI 窗口接手时读到什么</title>
+<desc id="desc">MountainRS 真实续接包字段及另外三次节点读取的精选视图。项目没有 active 节点，两次失败保留结论，暂停节点保留恢复条件。文档摘录视图，并非完整界面截图。</desc>
+<text x="36" y="38" class="label green" >PF3 · MOUNTAINRS</text>
+<text x="1064" y="38" class="label muted" text-anchor="end">真实记录 · 精选阅读视图</text>
+<text x="36" y="90" class="head" >新 AI 窗口接手时读到什么</text>
+<text x="36" y="122" class="body muted" >先读项目续接包，再按需读取工作节点上的原因与结论。</text>
+<rect x="36" y="148" width="1028" height="181" rx="14" fill="#efeee6"/>
+<text x="56" y="177" class="label green" >01 · 来自 pf3_resume 续接包</text>
+<text x="56" y="215" class="body bold" >当前没有 active 节点，先与所有者确认工作方向。</text>
+<text x="56" y="247" class="body" >项目由所有者停工 · 生命周期：abandoned</text>
+<text x="56" y="278" class="body" >顺序上首个计划节点：Stage 7.9 · 单 ROI L3 反演</text>
+<text x="56" y="307" class="small muted" >planned 不等于获准开工。项目版本 6 · 路线版本 100</text>
+<text x="36" y="364" class="label green" >02 · 三次 pf3_read_node 读取补充原因</text>
+<rect x="36" y="385" width="1028" height="130" rx="14" fill="#f4e7df"/>
+<text x="56" y="416" class="body bold red" >FAILED · 6.5.0-X · 复杂 GEE 预筛</text>
+<text x="56" y="446" class="body" >停止继续修复杂 audit JS；GEE 只做低太阳角、coverage 与 QA 简筛，</text>
+<text x="56" y="473" class="body" >near-zero / shadow ratio 回到本地 Python 判断。</text>
+<text x="56" y="499" class="small muted" >来源节点：nd_f3a98903e084</text>
+<rect x="36" y="531" width="1028" height="126" rx="14" fill="#f4e7df"/>
+<text x="56" y="562" class="body bold red" >FAILED · 6.5.1-X · 大 ROI + 95% 单景覆盖</text>
+<text x="56" y="592" class="body" >当前数据窗下，不存在满足强约束的单景。</text>
+<text x="56" y="619" class="body" >该约束不再承担最终数据入口。</text>
+<text x="56" y="643" class="small muted" >来源节点：nd_1a8f9d2b453f</text>
+<rect x="36" y="673" width="1028" height="126" rx="14" fill="#f3eddc"/>
+<text x="56" y="704" class="body bold amber" >PAUSED · 6.5.1-D · 缩小 ROI 的快速调试路线</text>
+<text x="56" y="734" class="body" >仅在导出器或本地读取链出现新的技术故障时恢复。</text>
+<text x="56" y="761" class="body" >这一恢复条件保留在暂停节点的原因中。</text>
+<text x="56" y="785" class="small muted" >来源节点：nd_7f2957ff1de7</text>
+<text x="36" y="835" class="small muted" >实时读取：2026-09-18 · 与已公开项目树的项目版本、路线版本一致。</text>
+<text x="36" y="861" class="small muted" >文档摘录视图；不展示规则正文与资产位置。</text>
+</svg>

@@ -10,6 +10,18 @@ A new AI window sees Stage 6.5.1-D marked `paused`. That label alone does not sa
 
 This case shows the information available at a handoff: a state, its reason and a condition for continuing. The records below make that concrete.
 
+## From the handoff to the records
+
+A live read on **September 18, 2026** returned project revision **6** and route revision **100**, matching the published tree snapshot. The following is a translated, selected reading view of that call and three subsequent node reads:
+
+![MountainRS: current handoff state followed by the reasons read from three real nodes](screenshots/mountainrs-handoff.en.svg)
+
+1. `pf3_resume` reports `no_active_node`. Its project section records lifecycle `abandoned`; the owner stopped this project. The first planned item is Stage 7.9, which is a route position, not permission to activate it.
+2. The route identifies the failed and paused nodes. Three `pf3_read_node` calls retrieve their full state reasons: the two failed approaches and the debugging resume condition shown above.
+3. The handoff supplies project and route revisions for writes that require them. A future client must reread current state before writing; the number in this dated image is not a current credential.
+
+[Selected original fields](mountainrs-handoff.json) preserve the source operation, node IDs, original reasons and revisions. The figure combines these reads for documentation; it is not a single raw handoff, an English interface screenshot or a transcript of a model completing work. Rule text and asset locations are omitted from this public excerpt.
+
 ## Read one part of the tree
 
 ![Manually translated MountainRS records: two failed approaches, a paused debugging route and completed downstream work](screenshots/mountainrs-tree.en.svg)
@@ -39,4 +51,4 @@ The Chinese image is a direct capture of the live PF3 interface with the two ear
 
 The [recorded tree extract](mountainrs-tree.json) lists all 36 node IDs, titles and states, plus the original reasons for the two failed nodes and the paused node. It contains selected presentation fields from an owner-authorized live read, not a published PF3 API response format.
 
-This is author-recorded evidence of a real project's workflow. A node marked `done` means its work was closed; it does not establish a successful scientific result. The research repository and its underlying outputs remain private at this snapshot, so this material supports inspection of the recorded workflow rather than an independent rerun of the research. See the [evidence roadmap](roadmap.md) for the later research-artifact milestone.
+This is author-recorded evidence of a real project's workflow. A node marked `done` means its work was closed; it does not establish a successful scientific result. The [MountainRS research repository](https://github.com/zhaoxiuyue/MountainRS) became public on September 18, 2026. Its reports, [selected Stage 7.6 result tables](https://github.com/zhaoxiuyue/MountainRS/tree/main/stage7_real_weak_closure/stage7_6_optical_operator/outputs) and [project-management retrospective](https://github.com/zhaoxiuyue/MountainRS/blob/main/docs/one-tree-three-clients.md) can now be inspected directly. Most large inputs and outputs remain outside Git, so a full end-to-end research rerun is not available from the repository alone. The [evidence roadmap](roadmap.md) distinguishes this publication from a measured fresh-client handoff.

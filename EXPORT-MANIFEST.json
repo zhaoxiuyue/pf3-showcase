@@ -1,6 +1,6 @@
 {
   "distribution": "pf3-showcase",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "protocol": "PF3 Handoff v0.1 draft",
   "scope": "Conceptual design notes, independent protocol, reference example, contract tests, synthetic checks and an owner-authorized MountainRS workflow snapshot; no complete PF3 implementation, other private project data or original Git history.",
   "files": [
@@ -36,13 +36,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 6754,
-      "sha256": "a23cedb3926a21e4e5ce4916e1d8a6006ac2e822386a17ab4af3065d7f4438f8"
+      "bytes": 8757,
+      "sha256": "3bda1877af7ed967b1dc0b9429d4224167bcbef861cc0c93b27eaaee90e6548d"
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 6098,
-      "sha256": "5701b93621ef6610f9a64454895324a601af874c94d11616e8562663e470cbc4"
+      "bytes": 7947,
+      "sha256": "ce4441c162e471850dfc026ba89b30d133d17017ee350dcc400f007c8e3f0113"
     },
     {
       "path": "conformance/handoff.mjs",
@@ -81,13 +81,13 @@
     },
     {
       "path": "docs/design.md",
-      "bytes": 6891,
-      "sha256": "de19751c34f68017db868197a454232e4cf54b76dd404a3d36949f0f8d3c1ad9"
+      "bytes": 8185,
+      "sha256": "91c91bd6b2f249db8b95f7fb8eef5c8b73a0754ca8c47095238e5f805571375d"
     },
     {
       "path": "docs/design.zh-CN.md",
-      "bytes": 5968,
-      "sha256": "fe790e536dec6359f492d167a9b32e47f23982c8615c5a0136aef4c98124922c"
+      "bytes": 7105,
+      "sha256": "012ea827b968d3bf74803f89217faeedeada47c50b4e8c470824284ed2b92b55"
     },
     {
       "path": "docs/engineering-v0.2.4.md",
@@ -96,8 +96,13 @@
     },
     {
       "path": "docs/evidence.md",
-      "bytes": 2165,
-      "sha256": "f766e5f2814c49724d72f82c591b5c4ab4bb3d4bd879e766e6e9fae10559411d"
+      "bytes": 3924,
+      "sha256": "349a9f664ee5163a26489c04a256bcd37dc72c85308c53693e5cb25d5a96aedb"
+    },
+    {
+      "path": "docs/mountainrs-handoff.json",
+      "bytes": 1935,
+      "sha256": "15864a76145b20e7d1bad11462e4869bf46964f249f25fd71c9ecda630d6819d"
     },
     {
       "path": "docs/mountainrs-tree.json",
@@ -106,13 +111,13 @@
     },
     {
       "path": "docs/mountainrs.md",
-      "bytes": 3791,
-      "sha256": "53d215370f10d38f6d071289d902d3009c52d2bbe37f2b6ef5c8f3089a48dfbc"
+      "bytes": 5539,
+      "sha256": "627fe2af55ad8cf5e56cfdc5ddcc7a26b7b70d42acd0e6ccea2d09af7bd3cbd6"
     },
     {
       "path": "docs/mountainrs.zh-CN.md",
-      "bytes": 3267,
-      "sha256": "96f07aaea3a4932e1631790f734d0b2c04f330a0f83d521fee407f7108e5a2ae"
+      "bytes": 4806,
+      "sha256": "c656803d401d32ea3ae89fe59db059f11b83e6a943711f335227fa1513d3dab7"
     },
     {
       "path": "docs/recorded-refusals.json",
@@ -121,8 +126,8 @@
     },
     {
       "path": "docs/roadmap.md",
-      "bytes": 1728,
-      "sha256": "0af90b3e54627ce77b2452e2a8d9e628dacd5e6c3d839837866283729f680e49"
+      "bytes": 2209,
+      "sha256": "94042849fec6820297cfc133fab2d0a7faee04ea84f720ec4794b5746b7d8e30"
     },
     {
       "path": "docs/screenshots/cas-conflict.png",
@@ -133,6 +138,16 @@
       "path": "docs/screenshots/demo-tree.png",
       "bytes": 407577,
       "sha256": "b74897370de8bfa11355a36323828d701523f14b4e37f63d2d07015b7ccdd2b0"
+    },
+    {
+      "path": "docs/screenshots/mountainrs-handoff.en.svg",
+      "bytes": 3448,
+      "sha256": "4f65f9c69f1455b74a77d9bf4c8a8e770fdf252f8a9e2adb62c60b109c794784"
+    },
+    {
+      "path": "docs/screenshots/mountainrs-handoff.zh-CN.svg",
+      "bytes": 3516,
+      "sha256": "926d77d93e39db56c56d079e8177f26e621364d8f649b5903e55dc6f84998e89"
     },
     {
       "path": "docs/screenshots/mountainrs-tree.en.svg",
@@ -147,22 +162,22 @@
     {
       "path": "package-lock.json",
       "bytes": 2517,
-      "sha256": "2bf2d090c4c1ae6665bb459c5aad217e5abb168ceae2c35cbd7fa2e6bcc023c6"
+      "sha256": "cef78bd8c870495a383355cafd65e646bd12f6bbbce6cb16a6bf2671ede43aba"
     },
     {
       "path": "package.json",
       "bytes": 805,
-      "sha256": "5af005c1271e6a4e524d7b05d2ebe70adb6dc2731b5b68a5cfd1c7bf4a76951a"
+      "sha256": "90c3e6596d426bb751bcf8d716c41436336e0319cc5be376b890d482ea16032d"
     },
     {
       "path": "protocol/README.md",
       "bytes": 5216,
-      "sha256": "8e7e0e1cca749263e1835e7ca5b8d92e6740ad397466afdc065bc85c3669b4f7"
+      "sha256": "ba4a48664d36f702e1e8f0237c04ab42eb9ca507822d1b64314265efd8cdcdae"
     },
     {
       "path": "protocol/README.zh-CN.md",
       "bytes": 4599,
-      "sha256": "bda31f1e520a321419c72debd1a2c94244433c3f02e5377ec76fb7e676d48c72"
+      "sha256": "16abe3099f134afde6c6d6958e10d6fe39a741ba87ad0b3c2048600ae2114f06"
     },
     {
       "path": "protocol/examples/exchange-trace.json",

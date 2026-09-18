@@ -1,10 +1,10 @@
 # PF3 Showcase · Project Forest 3
 
-**Many AI windows. One shared project state.**
+**Keep long-running AI projects ready to resume.**
 
-[中文](README.zh-CN.md) · [Real case](#a-real-project-mountainrs) · [Protocol demo](#protocol-demo) · [Design notes](docs/design.md)
+[中文](README.zh-CN.md) · [Handoff context](#what-a-fresh-window-receives) · [Real case](#a-real-project-mountainrs) · [Protocol demo](#protocol-demo) · [Design notes](docs/design.md)
 
-PF3 is a project-state system for long-running work with AI. It keeps the current task, previous decisions, failed attempts and conditions for continuing in one shared record.
+PF3 assembles context for a fresh AI session from shared project state: tasks, decisions, failed attempts, and applicable constraints.
 
 This repository contains **design notes, a real MountainRS workflow snapshot, and an independent handoff example you can run locally**, with a protocol draft, JSON Schema and contract tests.
 
@@ -18,11 +18,30 @@ The code and reports may still be there when the AI window changes. Before conti
 
 When these decisions are scattered through chat, the next window has to reconstruct them. PF3 records them with the relevant work: routes organize tasks, executed attempts retain their conclusions, rules have an explicit scope, and a handoff carries the current context and write-back version. The [design notes](docs/design.md) explain these choices and their tradeoffs.
 
+## What a fresh window receives
+
+People and agents record decisions and evidence as they work. PF3 assembles a handoff from the stored project state when a new window reads it.
+
+| During the work | At the next handoff |
+|---|---|
+| Tasks and progress belong to project nodes. | The current task, its intent and selected recent progress appear together. |
+| Failed attempts retain conclusions; paused work retains its reason. | Referenced conclusions appear in context; other node details remain available to read. |
+| Rules belong to a global or project scope; constraints target nodes. | The handoff includes active global rules, project rules and pending constraints for the current node. |
+| Writes update shared, versioned state and leave receipts. | A client receives write revisions; stale writes are refused and require rereading. |
+
+This reduces the work of assembling a new handoff each time a window changes. Recording useful evidence and checking the referenced files remain part of the work. See the [design notes](docs/design.md#what-is-assembled-and-what-still-needs-a-reader).
+
+In **MountainRS**, the current handoff starts with a concrete fact: **there is no active task**. A fresh window must establish the owner's direction before starting. It can then read why the earlier approaches failed and when paused work may resume.
+
+![Selected MountainRS handoff and node reads: no active task, two preserved failed conclusions and a specific condition for resuming paused work](docs/screenshots/mountainrs-handoff.en.svg)
+
+*Translated reading view of real PF3 calls, September 18, 2026. Section 1 comes from `pf3_resume`; section 2 comes from three subsequent `pf3_read_node` calls. [Source fields and reading sequence](docs/mountainrs.md#from-the-handoff-to-the-records). The tree below shows the same project and route revisions.*
+
 ## A real project: MountainRS
 
-**PF3 walkthrough:** these are real product records; the runnable protocol demo below is a separate example.
+**Where the context comes from:** these are the project records behind the reading sequence above.
 
-MountainRS is a remote-sensing research project managed with PF3. Its tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can read those conclusions before deciding what to try next.
+MountainRS is a remote-sensing research project managed with PF3. Its tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can inspect these records before deciding what to try next. The [research repository](https://github.com/zhaoxiuyue/MountainRS) now provides reports, selected result tables and a project-management retrospective.
 
 ![MountainRS: two failed approaches retain their conclusions, a debugging route has a specific resume condition, and downstream work is done](docs/screenshots/mountainrs-tree.en.svg)
 
@@ -62,7 +81,7 @@ npm run verify
 
 ## Explore the repository
 
-The showcase package is **0.2.10**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.11**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
 - [MountainRS case](docs/mountainrs.md): a real project tree, its original screenshot, translated view and recorded node states.
 - [Design notes](docs/design.md): five states, route versions, executed attempts, rule scopes and handoff context.
