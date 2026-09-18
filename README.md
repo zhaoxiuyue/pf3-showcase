@@ -81,7 +81,7 @@ npm run verify
 
 ## Explore the repository
 
-The showcase package is **0.2.12**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.13**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
 - [MountainRS case](docs/mountainrs.md): a real project tree, its original screenshot, English record translations and actual resume output.
 - [Design notes](docs/design.md): five states, route versions, executed attempts, rule scopes and handoff context.

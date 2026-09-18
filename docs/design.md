@@ -90,4 +90,4 @@ Take one real workflow and observe a handoff: can a fresh client identify the cu
 
 The public contract tests establish a small executable baseline. The design choices above give a prospective collaborator concrete questions to evaluate around it.
 
-[Discuss a workflow](../COLLABORATE.md#working-with-elara) · [Run the handoff example](../README.md#run-the-example)
+[Discuss a workflow](../COLLABORATE.md#working-with-elara) · [Run the handoff example](../README.md#protocol-demo)

@@ -28,7 +28,7 @@ The visible records, translated into English:
 | Stage 6.5.0-X · failed | Complex GEE shadow-risk prescreen audit. Stop patching the complex audit script; keep low-sun-angle, coverage and QA screening in GEE, and assess near-zero / shadow ratios locally in Python. |
 | Stage 6.5.1-X · failed | Large ROI + 95% single-scene full-coverage constraint. No single scene in the current data window meets the constraint; it no longer defines the final data entry route. |
 | Dashed connection | Work is suspended, its conclusion remains unresolved, and it may be resumed or branched; later work follows the route below. |
-| Stage 7.0 · done | Repair the real weak-closure baseline and lock the evaluation contract |
+| Stage 7.0 · done | Lock the pre-repair baseline and evaluation criteria for the real-data weak closure. |
 | Stage 7.1-R · done · second attempt | Complete the L0 observation data specification and support semantics; one earlier attempt was superseded. |
 
 ## From the handoff to the records
