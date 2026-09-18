@@ -36,13 +36,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 8877,
-      "sha256": "14bf2ad7d71b527496125bcc5be1e24f3d52722b7ff73e0754770aed483af95f"
+      "bytes": 9073,
+      "sha256": "3a150a36d6211f26305ce74530969f283f1c8721279ba7056cdbb4cc637c4d20"
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 7669,
-      "sha256": "b8cbb02c0bc14708b7258787b4d5f64fa0ed2635c80dc81d8f6e49abdff31f15"
+      "bytes": 7903,
+      "sha256": "830a6b435d21d08051a606712f6b462b9e5255d5e18699c7ffcfdd5b1a44d04f"
     },
     {
       "path": "conformance/handoff.mjs",
@@ -106,8 +106,8 @@
     },
     {
       "path": "docs/mountainrs-resume.en.md",
-      "bytes": 31227,
-      "sha256": "b0f7e4faf6fc28f24db0a54355690889192690390104668dfe426b58b92b29f2"
+      "bytes": 31806,
+      "sha256": "3c47f3ec84dc140be8c83f8918ff605147a87c7b634b56aec8bd008e639f872b"
     },
     {
       "path": "docs/mountainrs-resume.zh-CN.md",
@@ -121,13 +121,13 @@
     },
     {
       "path": "docs/mountainrs.md",
-      "bytes": 5876,
-      "sha256": "701b7f441a562cea673dcdd36a4cf6483193fb80483807ba9e8bc5fb5464eadd"
+      "bytes": 6483,
+      "sha256": "3df8bee374e75e371cca881c3c76f7658d07cd1559686fd625570a3fef9540bf"
     },
     {
       "path": "docs/mountainrs.zh-CN.md",
-      "bytes": 4575,
-      "sha256": "c99cca20b8c9c5a72d89b88bd2b97c3aa91fa72e8e184ea31a242b7f60325d47"
+      "bytes": 5177,
+      "sha256": "851aa784db195b44a51c04ea6279a105aa05b85cc794c816fb7f504da9e2f629"
     },
     {
       "path": "docs/recorded-refusals.json",

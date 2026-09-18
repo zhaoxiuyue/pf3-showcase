@@ -33,7 +33,7 @@ PF3 将任务、决定、失败和约束保存在共享项目状态中，为新�
 
 在 **MountainRS** 的当前续接中，首先出现的是一个具体事实：**没有 active 任务**。新窗口动手前需要与所有者确认工作方向，再按需读取以前为什么失败、暂停工作何时才可恢复。
 
-直接查看[实际返回的续接包原文](docs/mountainrs-resume.zh-CN.md)（[英文翻译](docs/mountainrs-resume.en.md)），规则正文与资产位置均保留，顺序与真实返回一致；节点原因随后按需读取。
+直接查看[实际返回的续接包原文](docs/mountainrs-resume.zh-CN.md)（[英文翻译](docs/mountainrs-resume.en.md)），规则正文与资产位置均保留，顺序与真实返回一致；节点原因随后按需读取。这是 Elara 在 MountainRS 中截至 2026 年 9 月 18 日的工作配置，不是 PF3 默认制度；[适用范围说明](docs/mountainrs.zh-CN.md#从续接包读到原始记录)区分这些个性化规则与工具本身的行为。
 
 ## 一个真实项目：MountainRS
 

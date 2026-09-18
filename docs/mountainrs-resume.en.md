@@ -2,7 +2,9 @@
 
 [Original Chinese tool output](mountainrs-resume.zh-CN.md) · [Project case](mountainrs.md)
 
-English translation of `pf3_resume(format="markdown")`, read on September 18, 2026. The sections follow the actual returned order. Rule text and asset locations are included. The source's September 10 stopping note still describes the repository as private at that date; MountainRS became public on September 18. This dated record documents what the service returned, rather than granting access to it or defining the public demo's protocol.
+English translation of `pf3_resume(format="markdown")`, read on September 18, 2026. The sections follow the actual returned order. Rule text and asset locations are included. The source's September 10 stopping note still describes the repository as private at that date; MountainRS became public on September 18. The dated record documents what the service returned; it does not define the public demo's protocol.
+
+This is Elara's historical working configuration for MountainRS, read on September 18, 2026. It contains personalized instructions, including learning routines and assignments to named executors and reviewers. These are not PF3's default rules or general safety or audit policies. Here, a global rule applies across the author's projects; it does not apply to every PF3 installation. Rule text guides work and is not evidence of enforced server-side permissions. Project IDs, revisions and asset paths are record references, not service access grants; some assets are not distributed with this repository.
 
 > Read the sections in order before acting. Write-back versions appear in section 4. The source estimated 9,089 tokens: rules 3,624 (40%); project 1,590 (17%); current node 856 (9%); handoff 385 (4%); assets 2,634 (29%). This is the source's estimate, not a measurement of this English translation.
 

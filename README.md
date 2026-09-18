@@ -33,7 +33,7 @@ This reduces the work of assembling a new handoff each time a window changes. Re
 
 In **MountainRS**, the current handoff starts with a concrete fact: **there is no active task**. A fresh window must establish the owner's direction before starting. It can then read why the earlier approaches failed and when paused work may resume.
 
-Read the [actual resume package, including rules and asset locations](docs/mountainrs-resume.en.md) ([original Chinese tool output](docs/mountainrs-resume.zh-CN.md)). It preserves the service's section order; node reasons can then be read separately.
+Read the [actual resume package, including rules and asset locations](docs/mountainrs-resume.en.md) ([original Chinese tool output](docs/mountainrs-resume.zh-CN.md)). These are Elara's working rules for MountainRS as read on September 18, 2026, not PF3's default policies. See the [scope of these rules](docs/mountainrs.md#from-the-handoff-to-the-records). The text preserves the service's section order; node reasons can then be read separately.
 
 ## A real project: MountainRS
 

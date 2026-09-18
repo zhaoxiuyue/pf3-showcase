@@ -33,6 +33,8 @@ The visible records, translated into English:
 
 ## From the handoff to the records
 
+This is Elara's historical working configuration for MountainRS, read on September 18, 2026. It contains personalized instructions, including learning routines and assignments to named executors and reviewers. These are not PF3's default rules or general safety or audit policies. Here, a global rule applies across the author's projects; it does not apply to every PF3 installation. Rule text guides work and is not evidence of enforced server-side permissions. Project IDs, revisions and asset paths are record references, not service access grants; some assets are not distributed with this repository.
+
 A September 18, 2026 read returned project revision **6** and route revision **100**. Read the [original Markdown returned by PF3](mountainrs-resume.zh-CN.md), or its [English translation](mountainrs-resume.en.md). Both include the rule text and asset locations. The original tool output is preserved as returned; the English text follows its sections.
 
 1. `pf3_resume` returns applicable global and project rules, the project and route, the current-node section, the write-back contract, and assets. For this project it reports `no_active_node` and lifecycle `abandoned`: the owner deliberately stopped work. The first planned item is Stage 7.9, which is a route position rather than permission to activate it.
