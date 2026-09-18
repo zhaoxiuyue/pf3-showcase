@@ -33,19 +33,19 @@ This reduces the work of assembling a new handoff each time a window changes. Re
 
 In **MountainRS**, the current handoff starts with a concrete fact: **there is no active task**. A fresh window must establish the owner's direction before starting. It can then read why the earlier approaches failed and when paused work may resume.
 
-![Selected MountainRS handoff and node reads: no active task, two preserved failed conclusions and a specific condition for resuming paused work](docs/screenshots/mountainrs-handoff.en.svg)
-
-*Translated reading view of real PF3 calls, September 18, 2026. Section 1 comes from `pf3_resume`; section 2 comes from three subsequent `pf3_read_node` calls. [Source fields and reading sequence](docs/mountainrs.md#from-the-handoff-to-the-records). The tree below shows the same project and route revisions.*
+Read the [actual resume package, including rules and asset locations](docs/mountainrs-resume.en.md) ([original Chinese tool output](docs/mountainrs-resume.zh-CN.md)). It preserves the service's section order; node reasons can then be read separately.
 
 ## A real project: MountainRS
 
-**Where the context comes from:** these are the project records behind the reading sequence above.
+**The actual project tree:** the screenshot below is from PF3 itself.
 
-MountainRS is a remote-sensing research project managed with PF3. Its tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can inspect these records before deciding what to try next. The [research repository](https://github.com/zhaoxiuyue/MountainRS) now provides reports, selected result tables and a project-management retrospective.
+MountainRS is a remote-sensing research project managed with PF3. Its tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can inspect these records before deciding what to try next. The [research repository](https://github.com/zhaoxiuyue/MountainRS/blob/main/README.en.md) now provides an English overview, selected result tables and an [English project-management retrospective](https://github.com/zhaoxiuyue/MountainRS/blob/main/docs/one-tree-three-clients.en.md). Historical research reports remain mainly in Chinese.
 
-![MountainRS: two failed approaches retain their conclusions, a debugging route has a specific resume condition, and downstream work is done](docs/screenshots/mountainrs-tree.en.svg)
+![MountainRS: two failed approaches retain their conclusions, a debugging route has a specific resume condition, and downstream work is done](docs/screenshots/mountainrs-tree.zh-CN.png)
 
-*Manually translated reading view of real records, September 17, 2026. The product interface is Chinese: [original screenshot](docs/screenshots/mountainrs-tree.zh-CN.png) · [case and recorded tree](docs/mountainrs.md).*
+*Original PF3 interface capture, September 17, 2026. The layout, colors and node relationships are unchanged. [English translation of the visible records](docs/mountainrs.md#read-the-original-tree).*
+
+In the image, **Stage 6.5.1-D is paused**, with two earlier failed attempts expanded underneath it. Their conclusions remain attached to the work. Stage 7.0 and Stage 7.1-R are marked done further down the same route.
 
 ## Protocol demo
 
@@ -81,9 +81,9 @@ npm run verify
 
 ## Explore the repository
 
-The showcase package is **0.2.11**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.12**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
-- [MountainRS case](docs/mountainrs.md): a real project tree, its original screenshot, translated view and recorded node states.
+- [MountainRS case](docs/mountainrs.md): a real project tree, its original screenshot, English record translations and actual resume output.
 - [Design notes](docs/design.md): five states, route versions, executed attempts, rule scopes and handoff context.
 - [Handoff protocol v0.1 draft](protocol/README.md): read, write, version checks, receipts and conflict recovery.
 - [JSON Schema](protocol/handoff.schema.json), [a standalone message](protocol/examples/state.json) and [an exchange trace](protocol/examples/exchange-trace.json): individual payloads and the sequence between them.

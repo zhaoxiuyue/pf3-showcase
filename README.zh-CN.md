@@ -33,17 +33,15 @@ PF3 将任务、决定、失败和约束保存在共享项目状态中，为新�
 
 在 **MountainRS** 的当前续接中，首先出现的是一个具体事实：**没有 active 任务**。新窗口动手前需要与所有者确认工作方向，再按需读取以前为什么失败、暂停工作何时才可恢复。
 
-![MountainRS 真实续接及节点读取摘录：当前无 active 任务，两次失败保留结论，暂停工作保留恢复条件](docs/screenshots/mountainrs-handoff.zh-CN.svg)
-
-*2026 年 9 月 18 日真实 PF3 调用的文档阅读视图。第一部分来自 `pf3_resume`，第二部分来自随后三次 `pf3_read_node`，不是一份完整返回的截图。[来源字段与读取顺序](docs/mountainrs.zh-CN.md#从续接包读到原始记录)。下方项目树与它的项目版本、路线版本一致。*
+直接查看[实际返回的续接包原文](docs/mountainrs-resume.zh-CN.md)（[英文翻译](docs/mountainrs-resume.en.md)），规则正文与资产位置均保留，顺序与真实返回一致；节点原因随后按需读取。
 
 ## 一个真实项目：MountainRS
 
-MountainRS（山地遥感物理基座）是用 PF3 管理的遥感研究项目。它的树保留了两条失败的数据入口路线：过于复杂的 GEE 预筛，以及当前数据窗中没有任何单景能满足的覆盖要求。缩小 ROI 的调试路线则保持暂停，并写明恢复条件。这些是上方读取过程所对应的项目记录。[科研仓库](https://github.com/zhaoxiuyue/MountainRS)现已公开，提供报告、精选结果表与项目管理复盘。
+MountainRS（山地遥感物理基座）是用 PF3 管理的遥感研究项目。它的树保留了两条失败的数据入口路线：过于复杂的 GEE 预筛，以及当前数据窗中没有任何单景能满足的覆盖要求。缩小 ROI 的调试路线则保持暂停，并写明恢复条件。下图直接展示这些记录在 PF3 中的样子。[科研仓库](https://github.com/zhaoxiuyue/MountainRS)现已公开，提供报告、精选结果表与项目管理复盘。
 
 ![MountainRS 真实 PF3 界面：两条失败路线保留原因，暂停路线注明恢复条件，后续主线继续完成](docs/screenshots/mountainrs-tree.zh-CN.png)
 
-*2026 年 9 月 17 日真实界面截图，已展开历史失败尝试。[案例与项目树记录](docs/mountainrs.zh-CN.md) · [人工英文译文视图](docs/screenshots/mountainrs-tree.en.svg)。*
+*2026 年 9 月 17 日真实界面截图，已展开历史失败尝试。[案例与项目树记录](docs/mountainrs.zh-CN.md) · [截图内容的英文翻译](docs/mountainrs.md#read-the-original-tree)。*
 
 ## 几分钟跑通交接
 
@@ -84,11 +82,11 @@ npm run verify
 
 ## 从哪里开始看
 
-展示包版本为 **0.2.11**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
+展示包版本为 **0.2.12**，协议为 **PF3 Handoff v0.1 draft**。Schema 本轮未改动，`$id` 仍固定到 `v0.2.1`；[协议文档](protocol/README.zh-CN.md#版本与示例)说明单条消息与交接轨迹的区别。
 
 | 内容 | 可以拿来做什么 |
 |---|---|
-| [MountainRS 真实案例](docs/mountainrs.zh-CN.md) | 查看真实项目树截图、英文译文与记录的节点状态 |
+| [MountainRS 真实案例](docs/mountainrs.zh-CN.md) | 查看真实项目树截图、对应英文翻译与实际续接包 |
 | [设计说明](docs/design.zh-CN.md) | 五状态、路线版本、执行记录保留与规则分层背后的取舍 |
 | [交接协议 v0.1 草案](protocol/README.zh-CN.md) | 理解读状态、声明版本、写入、拒绝与重读的行为约定 |
 | [JSON Schema](protocol/handoff.schema.json)、[单条消息](protocol/examples/state.json)与[交接轨迹](protocol/examples/exchange-trace.json) | 检查字段结构，制作自己的接入样例 |
