@@ -1,8 +1,36 @@
-# MountainRS：一棵真实项目树
+# MountainRS：网页讨论与本地执行，共用一棵树
 
 [English](mountainrs.md) · [Showcase 首页](../README.zh-CN.md)
 
-MountainRS（山地遥感物理基座）是 Elara 的遥感研究项目。PF3 的树记录了做过的工作、失败的路线和恢复工作的条件。以下材料来自 **2026 年 9 月 17 日**读取的真实记录，所有者已授权公开这棵项目树。
+MountainRS（山地遥感物理基座）是 Elara 的遥感研究项目。它的 PF3 工作流连接了 ChatGPT 网页与本地的 Claude Code、Codex，参与者通过同一棵树处理目标、契约、发现和决定。
+
+[复盘](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/docs/one-tree-three-clients.md#三三个角色一个真相源)记录了网页讨论提出修改、本地执行读取文件核验、所有者裁定意图与代价的分工。这是该项目的角色安排。历史客户端统计使用 `oauth:chatgpt`、`claude-code`、`codex` 标签，不逐一标识每次模型交互。
+
+## Stage 7.3
+
+**方案依赖的定义，实际还不存在。** Stage 7.3 处理单个研究区域内的空间评估块。它的合同假定上游文件已经唯一给出 core 形状、尺寸、网格锚点、候选枚举顺序、边缘处理、并列 tie-break 与 selection algorithm。
+
+8 月 6–8 日的工作中，本地窗口读取四份 Stage 7.0 冻结文档，发现它们仍把正式 ROI/core 协议列为执行前提，合同要求的七项全部缺失。因此首轮 preflight 判定 Stage 7.3 不可激活。
+
+8 月 8 日，所有者批准 core-topology 子协议，采用五个现成 core，确定“全取、按 `core_id` 字典序升序”的选择规则。合同③与⑧据此修订，记录的回执为 `rc_8f02b6c39b79`。之后的 preflight 记录定义与评分口径已经唯一可执行。在这个项目的工作约定中，检查通过后仍要等待所有者的执行指令。
+
+缺失的前提、获批决定与修订合同留在项目记录里。后来的网页讨论或本地窗口可以查看路线为什么走到这里，本地发现也由此回到规划与审查中。
+
+### 读取执行记录
+
+![PF3 原始 Stage 7.3 进展，署名为 claude-code](screenshots/mountainrs-stage7.3-progress.zh-CN.png)
+
+*2026 年 9 月 19 日截取的原始界面局部，文字与布局均未修改。展示节点 `nd_38d128c40d90` 中 8 月 8 日 11:32 的进展，读取时路线版本为 100。这是后来读取历史条目的画面，不是 8 月执行过程的录屏。[可见内容的英文翻译](mountainrs.md#read-the-execution-record)。*
+
+### 顺着公开文件核对
+
+| 来源 | 可以检查什么 |
+|---|---|
+| [Activation preflight manifest](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/stage7_real_weak_closure/stage7_3_spatial_blocking/evidence/preflight-manifest-v1.json) | `upstream_documents` 标明四份来源；`verdict.blocking_history` 记载定义缺失及后来的闭合；`approved_subprotocol` 保留批准日期、路径和 hash。 |
+| [Core-topology 子协议](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/stage7_real_weak_closure/stage7_3_spatial_blocking/docs/core-topology-subprotocol-v1.md) | §1–§5 解释缺口、已有 core 几何、选择算法与评估口径映射。 |
+| [协作复盘](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/docs/one-tree-three-clients.md#三三个角色一个真相源) | 作者记录的网页、本地、所有者分工及合同修订。 |
+
+链接固定到科研仓库的 `b609450` 提交。公开文件支持核对前提缺失及其解决过程；客户端分工与私有回执引用仍属于作者记录的协作历史。截图本身没有展示网页端的动作，也不证明新客户端已经完成一次续接。
 
 ## 一个状态标签还没说清什么
 
@@ -34,7 +62,7 @@ MountainRS（山地遥感物理基座）是 Elara 的遥感研究项目。PF3 �
 
 此前的[精选原始字段](mountainrs-handoff.json)仍保留节点 ID、原因原文与版本；现在也可以直接阅读完整续接原文，看到它们周围的规则与资产引用。这些材料展示实际记录与返回内容，不冒充模型完成工作的调用实录。
 
-英文页面使用同一张真实截图，在图旁逐项翻译可见记录，不再重画另一种树。五状态教学示例仍在[设计说明](design.zh-CN.md)中。
+英文页面使用同一组真实截图，在图旁翻译可见记录。[设计说明](design.zh-CN.md)解释这些记录怎样支持协作与续接。
 
 ## 快照与范围
 

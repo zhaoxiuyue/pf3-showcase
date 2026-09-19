@@ -1,6 +1,6 @@
 {
   "distribution": "pf3-showcase",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "protocol": "PF3 Handoff v0.1 draft",
   "scope": "Conceptual design notes, independent protocol, reference example, contract tests, synthetic checks and an owner-authorized MountainRS workflow snapshot; no complete PF3 implementation, other private project data or original Git history.",
   "files": [
@@ -36,13 +36,13 @@
     },
     {
       "path": "README.md",
-      "bytes": 9073,
-      "sha256": "3a150a36d6211f26305ce74530969f283f1c8721279ba7056cdbb4cc637c4d20"
+      "bytes": 9520,
+      "sha256": "638208daa5c516886bc34204c301771edc621051daf813fd294bf5af697fb1a8"
     },
     {
       "path": "README.zh-CN.md",
-      "bytes": 7903,
-      "sha256": "830a6b435d21d08051a606712f6b462b9e5255d5e18699c7ffcfdd5b1a44d04f"
+      "bytes": 8668,
+      "sha256": "7a0095da0c9b1fb7ebe924a4d76452dcc6efe027107b95dcb61478a801342061"
     },
     {
       "path": "conformance/handoff.mjs",
@@ -81,13 +81,13 @@
     },
     {
       "path": "docs/design.md",
-      "bytes": 8183,
-      "sha256": "2606fedd79c6d2b34d6641512b54cf3ac8d2dfcfc5902d4cf2ad06a5fea94cf5"
+      "bytes": 9508,
+      "sha256": "5656b91b16b10b54e564814475af2d6aaba505960585c8a8fbe8937a1fb9f5b0"
     },
     {
       "path": "docs/design.zh-CN.md",
-      "bytes": 7105,
-      "sha256": "012ea827b968d3bf74803f89217faeedeada47c50b4e8c470824284ed2b92b55"
+      "bytes": 8455,
+      "sha256": "24aea2909661c9417c50590379c7f9a84ab9d62cbd6d545c8941932fd4a80a95"
     },
     {
       "path": "docs/engineering-v0.2.4.md",
@@ -96,8 +96,8 @@
     },
     {
       "path": "docs/evidence.md",
-      "bytes": 4021,
-      "sha256": "977b6407eb7c2d03e6cef51fc811716e06b059ce4981753d3fdecca3be796d51"
+      "bytes": 4769,
+      "sha256": "789d18e6dc064dcab0462c12100b74ae88d7f16734cb1eddc891e8737cd67358"
     },
     {
       "path": "docs/mountainrs-handoff.json",
@@ -121,13 +121,13 @@
     },
     {
       "path": "docs/mountainrs.md",
-      "bytes": 6483,
-      "sha256": "3df8bee374e75e371cca881c3c76f7658d07cd1559686fd625570a3fef9540bf"
+      "bytes": 11137,
+      "sha256": "48c00ac0e66763ba152ec97b0ab3e80c5276ee5ac58ef7a680b0379f81a520a8"
     },
     {
       "path": "docs/mountainrs.zh-CN.md",
-      "bytes": 5177,
-      "sha256": "851aa784db195b44a51c04ea6279a105aa05b85cc794c816fb7f504da9e2f629"
+      "bytes": 8393,
+      "sha256": "ec616cba17961072e2e93cf54429a037797b5aa26cbcc213db6142005865a7f9"
     },
     {
       "path": "docs/recorded-refusals.json",
@@ -136,8 +136,8 @@
     },
     {
       "path": "docs/roadmap.md",
-      "bytes": 2678,
-      "sha256": "b705853d13b7b640c4a5913ba5475d4d357714c2a80873bf63f1fdafeb490a23"
+      "bytes": 3194,
+      "sha256": "ee10b8bc81c3a8b1667562a3094304ed48b8f47a906ef2731e961113d26350d5"
     },
     {
       "path": "docs/screenshots/cas-conflict.png",
@@ -150,6 +150,11 @@
       "sha256": "b74897370de8bfa11355a36323828d701523f14b4e37f63d2d07015b7ccdd2b0"
     },
     {
+      "path": "docs/screenshots/mountainrs-stage7.3-progress.zh-CN.png",
+      "bytes": 41121,
+      "sha256": "c26c9b18269986608372628fa06afaa090ced19df7090c5abd00061e89e9a999"
+    },
+    {
       "path": "docs/screenshots/mountainrs-tree.zh-CN.png",
       "bytes": 71748,
       "sha256": "2f8696211cf303831d1a102ca525cfbdd7bc34c996d1c9277c748850f922bd13"
@@ -157,22 +162,22 @@
     {
       "path": "package-lock.json",
       "bytes": 2517,
-      "sha256": "991d771e903c6d715701ca07d6164281f02bed1d075b13ea9df4847583b5083d"
+      "sha256": "8b5b73805dee237f50c88f6862e40c8f7525cab1f7bd0814a222f53c99a3a946"
     },
     {
       "path": "package.json",
-      "bytes": 805,
-      "sha256": "023316887c07fba05fd6f4d84debe72a29aab13f191f5cf04d4b08ec00afd8ec"
+      "bytes": 826,
+      "sha256": "d7b9f05e85179d9ab4497aee4d1fd8e5d215bdd1f28eabd54a52395b5800821a"
     },
     {
       "path": "protocol/README.md",
       "bytes": 5216,
-      "sha256": "b8c1c3338f1393a2badffe4ebf09b53d5ff280a9166a33b6c9843c1f5ab3e447"
+      "sha256": "be4f82e68ede1c2df2b2f6ad2509a94a585cca0eba164433b05726db018c0c27"
     },
     {
       "path": "protocol/README.zh-CN.md",
       "bytes": 4599,
-      "sha256": "4c34b4f8948b296ee013ebac60b5ede36a323c7d94f878ea2882d2935cae3811"
+      "sha256": "182f0f1b0db079366f0746a2fbe3157de8ad8ddca9e0c0e2010d9a73580c8eae"
     },
     {
       "path": "protocol/examples/exchange-trace.json",

@@ -4,6 +4,7 @@
 
 - **Runnable checks:** the independent protocol demo, contract tests and schema examples verify the behavior they execute. They do not connect to the private PF3 service.
 - **Real project records:** the [MountainRS case](mountainrs.md) includes the original September 17 interface capture, the September 18 resume output with rules and asset locations, and separate node reads at the same project and route revisions. These are recorded reads, not a transcript of an AI completing the project.
+- **Web/local collaboration:** the [Stage 7.3 case](mountainrs.md#stage-73) links the author's role account to the public preflight manifest and approved subprotocol at a pinned research commit. A September 19 capture shows the original stored August 8 `claude-code` progress entry. The files support the missing-prerequisite and repair sequence; the screenshot and private receipt references do not expose the complete web/local interaction history.
 - **Research artifacts:** [MountainRS is public](https://github.com/zhaoxiuyue/MountainRS/blob/main/README.en.md), including reports and selected Stage 7.6 result tables. Most large inputs and outputs remain outside Git; the repository alone does not support a full research rerun.
 - **Earlier synthetic check:** the CAS image and [recorded refusals](recorded-refusals.json) below come from synthetic in-memory calls to full PF3 v0.28.6 on September 12. Actors were simulated; this is a different implementation from the public protocol example.
 - **Historical scale:** the author's September 11 snapshot counted 12 projects, 224 nodes and 1,776 receipts. These counts are not adoption, customer or third-party validation figures. Current experience is one owner working with multiple AI clients.
@@ -15,6 +16,7 @@
 | 协议、`demo/`、`conformance/` 与 `tests/` | 本仓库的独立实现 | 可亲自运行一个小范围的版本交接闭环，或替换实现后运行契约测试 |
 | [MountainRS 项目树](mountainrs.zh-CN.md) | 2026-09-17 获所有者授权读取的真实项目；项目 revision 6、路线 revision 100 | 查看真实界面截图、英文译文和 36 个节点的状态；两条失败路线及一条暂停路线保留原因原文 |
 | [MountainRS 续接读取](mountainrs.zh-CN.md#从续接包读到原始记录) | 2026-09-18 实时读取，项目 revision 6、路线 revision 100 | 真实续接包原文、英文翻译和另外三次节点读取；包含规则正文与资产位置，不是模型执行实录 |
+| [网页与本地协作案例](mountainrs.zh-CN.md#stage-73) | 作者协作复盘、固定提交的公开 preflight 与子协议；9 月 19 日截取的 8 月 8 日原始进展 | 核对 Stage 7.3 缺失前提与补齐过程；截图和私有回执引用不构成完整网页/本地交互实录 |
 | 下方 CAS 截图与 JSON 摘录 | 完整 PF3 v0.28.6，2026-09-12 合成内存库调用 | 作者当时观察到的成功与旧版本拒绝返回 |
 | 使用统计 | 作者 2026-09-11 的历史快照 | 项目背景，不是外部客户采用或第三方核验 |
 

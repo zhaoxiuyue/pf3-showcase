@@ -1,8 +1,44 @@
-# MountainRS: a real project tree
+# MountainRS: web discussion and local execution on one tree
 
 [中文](mountainrs.zh-CN.md) · [Showcase overview](../README.md)
 
-MountainRS is Elara's remote-sensing research project. Its PF3 tree records the work that ran, the approaches that failed and the conditions for resuming work. The images below use its actual records, read on **September 17, 2026**, with the owner's permission to publish this project tree.
+MountainRS is Elara's remote-sensing research project. Its PF3 workflow connected ChatGPT in web chat with Claude Code and Codex locally. Participants used the same tree to work with goals, contracts, findings and decisions.
+
+The [retrospective](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/docs/one-tree-three-clients.en.md#3-three-roles-one-source-of-project-state) records web discussion proposing changes, local execution checking files, and the owner deciding intent and tradeoffs. These were this project's roles. Its historical client counts use the labels `oauth:chatgpt`, `claude-code` and `codex`; they do not identify every model interaction.
+
+## Stage 7.3
+
+**A planned dependency turned out to be missing.** Stage 7.3 concerned spatial evaluation blocks within one region of interest. Its contract assumed that upstream documents uniquely defined each block's shape, size, grid anchor, candidate enumeration order, edge handling, tie-break and selection algorithm.
+
+During the August 6–8 work, the local window inspected four frozen Stage 7.0 documents. They still listed the formal block protocol as a prerequisite. All seven required items were missing, so the initial check found Stage 7.3 unready for activation.
+
+On August 8, the owner approved a core-topology subprotocol. It adopted five existing blocks and a deterministic selection rule: take all five and order them by `core_id`. Contract clauses ③ and ⑧ were revised under the recorded receipt `rc_8f02b6c39b79`. A subsequent preflight recorded the definitions and scoring protocol as executable. In this workflow, a passing check still required an owner instruction before execution.
+
+The missing premise, approved decision and revised contract became part of the project record. A later web discussion or local session can inspect how the route reached that state. This is how local findings feed back into planning and review.
+
+### Read the execution record
+
+![Original PF3 Stage 7.3 progress entry, attributed to claude-code](screenshots/mountainrs-stage7.3-progress.zh-CN.png)
+
+*A crop of the original PF3 interface captured on September 19, 2026; no text or layout was changed. It shows the August 8, 11:32 progress entry on node `nd_38d128c40d90`, read at route revision 100. This is a later view of a stored entry, not a recording made during the August session.*
+
+English translation of the visible entry:
+
+> **Recorded progress — claude-code · August 8, 11:32**
+>
+> Contract clauses ①–⑩ are complete. Artifacts have been written to disk and committed (Git `26b56ee`, `4f0f381`), awaiting the owner's decision on closure.
+>
+> ① The preflight initially found activation inadmissible while the node was planned: all four frozen Stage 7.0 documents listed the ROI/core protocol as a prerequisite, and all seven items required by clause ③ were missing upstream. The gap was closed after the owner approved `core-topology-subprotocol-v1`; clauses ③ and ⑧ were revised accordingly (`rc_8f02b6c39b79`). Key fact: Stage 7.0's Shadow-risk B raster bounds exactly match Stage 7.1's frozen ROI bounds. The frozen projected boundaries of C5-D3's five cores fall directly on the current grid. Selecting all cores in ascending lexicographic `core_id` order removes the ambiguities in enumeration order, edge handling and tie-break by construction.
+
+### Follow the supporting files
+
+| Source | What a reader can inspect |
+|---|---|
+| [Activation preflight manifest](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/stage7_real_weak_closure/stage7_3_spatial_blocking/evidence/preflight-manifest-v1.json) | `upstream_documents` identifies the four documents; `verdict.blocking_history` records the missing definitions and later resolution; `approved_subprotocol` records the approval date, path and hash. |
+| [Core-topology subprotocol](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/stage7_real_weak_closure/stage7_3_spatial_blocking/docs/core-topology-subprotocol-v1.md) | Sections 1–5 explain the gap, existing block geometry, selection rule and mapping to the evaluation protocol. |
+| [Coordination retrospective](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/docs/one-tree-three-clients.en.md#3-three-roles-one-source-of-project-state) | The author's account of the web/local/owner roles and the contract revision. |
+
+These links pin the public research files to commit `b609450`. The source documents are mainly Chinese; the English account and translation above explain the relevant parts. The public files corroborate the prerequisite failure and its resolution. The client division and private receipt references remain author-recorded coordination history; the screenshot alone does not show the web client's actions or a fresh client completing a handoff.
 
 ## What a state label leaves out
 

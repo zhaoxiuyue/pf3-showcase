@@ -1,7 +1,7 @@
 {
   "name": "pf3-showcase",
-  "version": "0.2.13",
-  "description": "A minimal PF3 handoff protocol draft, JSON Schema and independent reference implementation for versioned AI workflows.",
+  "version": "0.2.14",
+  "description": "PF3 web-chat planning and review with local-agent execution: a real MountainRS case, design notes and an independent handoff protocol demo.",
   "type": "module",
   "license": "Apache-2.0",
   "author": "Xiuyue Zhao (Elara)",

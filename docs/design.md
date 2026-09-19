@@ -1,14 +1,29 @@
-# How PF3 organizes project continuity
+# How PF3 connects discussion, execution and review
 
 [中文](design.zh-CN.md) · [Showcase overview](../README.md)
 
-A fresh AI window needs to know what work is current, which conclusions still matter and what it can change. PF3's project model gives those questions an explicit place. This is the author's explanation of the current design; runnable evidence is identified in the [evidence record](evidence.md) and [repository scope](../README.md#scope-and-evidence).
+A web discussion needs the project's goals, decisions and constraints to review a plan. A local agent needs the same context alongside the files it can inspect and change. PF3 gives that shared project state an explicit structure and assembles a view for each new window.
 
-## Start with a synthetic project tree
+This is the author's explanation of the current design. The [MountainRS case](mountainrs.md#stage-73) shows its use in a real workflow; the [evidence record](evidence.md) identifies what readers can inspect or run.
 
-The screenshot's synthetic project, “Demo · Does caching actually help?” (缓存到底有没有用), provides the setting for this illustrative continuation. Node ②, “Try an in-memory cache” (试内存缓存), is already failed: its keys include request timestamps, its hit rate is only 11%, and the reason stays on the old node. In this continuation, node ④, “Reshape the cache keys” (按 key 的形状重切缓存), removes the timestamp as a changed premise, reopens ② as a new attempt, and receives a constraint: “Check key shape and reuse before validating against the original criteria.” When ④ finishes validation and closes, if that constraint still applies to later cache experiments in this project, it is promoted to a project rule for ⑤, “Write a rule” (写成一条规则), and subsequent relevant nodes.
+## Shared state across web and local clients
 
-![Synthetic project tree: cache attempt ② has failed, while cache-key work ④ is active](screenshots/demo-tree.png)
+| Part of the work | What PF3 makes available |
+|---|---|
+| Architecture discussion and route review | Goals, ordered tasks, current contracts, applicable rules and earlier conclusions |
+| Local fact checking and execution | The same project context, with references to files that the local client can inspect |
+| Review of an execution result | Recorded progress, problems, decisions and supporting asset references |
+| Agreed changes and later continuation | Revised plans, scoped constraints, write revisions and receipts |
+
+The clients work against the same service state through their configured access. Reading the tree lets a web-chat participant examine a route and its recorded premises. Local file inspection and tests establish whether those premises hold in the checkout. Findings written back to the tree can inform the next discussion.
+
+PF3 supplies the records; people and agents still have to read, reason, check and write. Recording a proposal, deciding whether to accept it, and executing it are distinct parts of the workflow. MountainRS assigned the owner decisions about intent and cost, web chat proposals and review, and local windows factual checks and execution. Those roles describe that project, not a universal allocation of authority.
+
+## A real premise corrected before execution
+
+Stage 7.3 in MountainRS required seven upstream definitions for spatial evaluation blocks. Inspection of four frozen documents found them missing. The owner approved a subprotocol, the contract was revised, and the local progress record preserved both the initial failure and the resolution. The [original interface entry and public preflight file](mountainrs.md#stage-73) let a later reader follow that change.
+
+The mechanisms below retain the meaning of that work: what was planned, which conditions allowed execution, what evidence changed the plan, and what remains relevant to the next reader.
 
 ## Five states separate readiness, execution and conclusions
 
@@ -54,15 +69,15 @@ This assigns a lifetime and audience to each instruction. It also creates work a
 
 ### What am I continuing?
 
-PF3 presents the current node's objective, acceptance criteria and boundaries so a fresh window can continue from the current focus, such as node ④'s cache-key work in the synthetic tree.
+PF3 presents the current node's objective, acceptance criteria and boundaries. A planning or review window can read the same requirements as an executor. If no node is active, the handoff says so.
 
 ### What conclusion led here?
 
-PF3 brings together the earlier conclusions referenced by the current node and access to their supporting material, so the next window can inspect relevant results such as ②'s recorded low hit rate and failure reason.
+PF3 brings together the earlier conclusions referenced by the current node and access to their supporting material. Stage 7.3 references Stage 7.2, whose closing record preserves the missing definitions, approved subprotocol and contract revision.
 
 ### Which constraints apply?
 
-PF3 supplies applicable cross-project rules, project rules and constraints addressed to the current node; in this continuation, ④ receives “Check key shape and reuse before validating against the original criteria.”
+PF3 supplies applicable cross-project rules, project rules and constraints addressed to the current node. In MountainRS, a recorded obligation for Stage 7.9 requires checks of two upstream counts before activation; the condition remains attached to the future work across window changes.
 
 ### Which version did I read?
 
@@ -70,7 +85,7 @@ PF3 presents the route version read and the corresponding write-back requirement
 
 ### What result should I leave?
 
-PF3 presents acceptance criteria and handoff requirements so this session can record what was done, the basis for its conclusion and the next step; closing ④ also requires resolving its constraints.
+PF3 presents acceptance criteria and handoff requirements so this session can record what was done, the basis for its conclusion and the next step. Closing a node also requires resolving its pending constraints.
 
 Code, reports and other assets remain in their own locations and can be opened through their references as needed.
 
@@ -84,10 +99,10 @@ The displayed token count is an estimate of the package size, not a token budget
 
 A handoff note can also preserve reasons, rules and history. PF3 puts their organization and versioned writes into a shared workflow, so each new window can start from the recorded project state. In the [MountainRS example](mountainrs.md#from-the-handoff-to-the-records), that means reading the handoff and then opening the relevant failed and paused nodes, without reconstructing those conclusions from an earlier chat.
 
-## What to evaluate in a pilot
+## What to evaluate in this workflow
 
-Take one real workflow and observe a handoff: can a fresh client identify the current task and a relevant earlier decision or failure; find the required inputs; complete a defined action; and leave a result the next client can verify? Agree on the acceptance criteria for that workflow before implementation.
+Follow one premise through discussion, local verification and a recorded decision. Can a reader find why the plan changed, inspect the supporting file and identify what remains to be done? The [MountainRS case](mountainrs.md#stage-73) provides historical records for that inspection.
 
-The public contract tests establish a small executable baseline. The design choices above give a prospective collaborator concrete questions to evaluate around it.
+A future fresh-client exercise should also record what a connected web or local client actually reads, checks and writes, and what the next participant receives. That remains a separate [evidence milestone](roadmap.md#next-evidence-milestone-03x). The public contract tests cover the small versioned-write example.
 
-[Discuss a workflow](../COLLABORATE.md#working-with-elara) · [Run the handoff example](../README.md#protocol-demo)
+[Read the real case](mountainrs.md#stage-73) · [Run the handoff example](../README.md#protocol-demo)

@@ -1,51 +1,62 @@
 # PF3 Showcase · Project Forest 3
 
-**Keep long-running AI projects ready to resume.**
+**Plan and review in web chat. Build with local agents. Keep one shared project state.**
 
-[中文](README.zh-CN.md) · [Handoff context](#what-a-fresh-window-receives) · [Real case](#a-real-project-mountainrs) · [Protocol demo](#protocol-demo) · [Design notes](docs/design.md)
+[中文](README.zh-CN.md) · [Real collaboration case](#a-real-project-mountainrs) · [Design notes](docs/design.md) · [Protocol demo](#protocol-demo)
 
-PF3 assembles context for a fresh AI session from shared project state: tasks, decisions, failed attempts, and applicable constraints.
+PF3 connects architecture discussions, route reviews, and local execution through a shared project tree containing tasks, decisions, applicable rules, and recorded outcomes.
 
-This repository contains **design notes, a real MountainRS workflow snapshot, and an independent handoff example you can run locally**, with a protocol draft, JSON Schema and contract tests.
+This showcase contains **a real MountainRS collaboration case, original PF3 interface captures, design notes, and an independent protocol example you can run locally**.
 
-## The problem at handoff
+## From web discussion to local execution
 
-The code and reports may still be there when the AI window changes. Before continuing, the new window also needs to establish:
+A design can make sense in web chat while depending on something the local files do not contain. Once implementation uncovers that gap, the discussion window needs to see what changed.
 
-- Which task is current, and which paths have already been tried?
-- Why did an earlier attempt stop, and what would justify returning to it?
-- Which constraints apply, and is the state it read still current when it writes back?
+In PF3, connected web-chat and local clients work from the same project state:
 
-When these decisions are scattered through chat, the next window has to reconstruct them. PF3 records them with the relevant work: routes organize tasks, executed attempts retain their conclusions, rules have an explicit scope, and a handoff carries the current context and write-back version. The [design notes](docs/design.md) explain these choices and their tradeoffs.
+1. **Plan and review:** read the goal, route, current contract and relevant history; propose a design or flag a missing prerequisite.
+2. **Check and execute:** inspect local files, test the premises and carry out the agreed work; record results, problems and supporting references.
+3. **Review again:** read those findings, decide how the route should change, and retain the decision for the next participant.
 
-## What a fresh window receives
-
-People and agents record decisions and evidence as they work. PF3 assembles a handoff from the stored project state when a new window reads it.
-
-| During the work | At the next handoff |
-|---|---|
-| Tasks and progress belong to project nodes. | The current task, its intent and selected recent progress appear together. |
-| Failed attempts retain conclusions; paused work retains its reason. | Referenced conclusions appear in context; other node details remain available to read. |
-| Rules belong to a global or project scope; constraints target nodes. | The handoff includes active global rules, project rules and pending constraints for the current node. |
-| Writes update shared, versioned state and leave receipts. | A client receives write revisions; stale writes are refused and require rereading. |
-
-This reduces the work of assembling a new handoff each time a window changes. Recording useful evidence and checking the referenced files remain part of the work. See the [design notes](docs/design.md#what-is-assembled-and-what-still-needs-a-reader).
-
-In **MountainRS**, the current handoff starts with a concrete fact: **there is no active task**. A fresh window must establish the owner's direction before starting. It can then read why the earlier approaches failed and when paused work may resume.
-
-Read the [actual resume package, including rules and asset locations](docs/mountainrs-resume.en.md) ([original Chinese tool output](docs/mountainrs-resume.zh-CN.md)). These are Elara's working rules for MountainRS as read on September 18, 2026, not PF3's default policies. See the [scope of these rules](docs/mountainrs.md#from-the-handoff-to-the-records). The text preserves the service's section order; node reasons can then be read separately.
+People and agents write the useful findings into PF3. A new window reads the stored state and follows references as needed. The owner's decisions, the tools available to each client and the project's rules determine who can act on a proposal.
 
 ## A real project: MountainRS
 
-**The actual project tree:** the screenshot below is from PF3 itself.
+In Elara's MountainRS research workflow, **ChatGPT in web chat, Claude Code and Codex used the same PF3 tree**. The [project-management retrospective](https://github.com/zhaoxiuyue/MountainRS/blob/b609450b8c1cea920df2bc256dbab1e55683c302/docs/one-tree-three-clients.en.md#3-three-roles-one-source-of-project-state) describes the division between web discussion, local fact checking and owner decisions.
 
-MountainRS is a remote-sensing research project managed with PF3. Its tree retains two failed data-entry approaches: an overcomplicated GEE prescreen and a coverage requirement that no scene in the current data window could meet. A smaller-region debugging route remains paused, with an explicit condition for returning to it. A fresh window can inspect these records before deciding what to try next. The [research repository](https://github.com/zhaoxiuyue/MountainRS/blob/main/README.en.md) now provides an English overview, selected result tables and an [English project-management retrospective](https://github.com/zhaoxiuyue/MountainRS/blob/main/docs/one-tree-three-clients.en.md). Historical research reports remain mainly in Chinese.
+One episode makes the collaboration concrete:
 
-![MountainRS: two failed approaches retain their conclusions, a debugging route has a specific resume condition, and downstream work is done](docs/screenshots/mountainrs-tree.zh-CN.png)
+- **The premise:** Stage 7.3's contract relied on seven definitions for spatial evaluation blocks being available upstream.
+- **The local finding:** inspection of four frozen documents found those definitions missing. The prerequisite check blocked activation.
+- **The decision:** the owner approved a core-topology subprotocol; contract clauses ③ and ⑧ were revised before execution.
+- **What stayed on the tree:** the progress record retained the missing premise, the approved repair and its receipt reference, so a later reader could inspect how the plan became executable.
 
-*Original PF3 interface capture, September 17, 2026. The layout, colors and node relationships are unchanged. [English translation of the visible records](docs/mountainrs.md#read-the-original-tree).*
+![Original Stage 7.3 progress in PF3: claude-code records the missing definitions, owner-approved subprotocol and contract revision](docs/screenshots/mountainrs-stage7.3-progress.zh-CN.png)
 
-In the image, **Stage 6.5.1-D is paused**, with two earlier failed attempts expanded underneath it. Their conclusions remain attached to the work. Stage 7.0 and Stage 7.1-R are marked done further down the same route.
+*Original interface detail captured September 19, 2026, showing the August 8 progress entry. [English translation and source files](docs/mountainrs.md#stage-73). The client roles come from the retrospective; this image shows the local execution record.*
+
+Read the [case and its public research artifacts](docs/mountainrs.md#stage-73), including the preflight manifest's recorded blocking history and the approved subprotocol. The case distinguishes public files from author-recorded coordination history.
+
+The tree also preserves earlier failed approaches and paused work:
+
+![Original MountainRS tree: two failed approaches remain beneath a paused debugging route](docs/screenshots/mountainrs-tree.zh-CN.png)
+
+*Original PF3 capture, September 17, 2026. Layout, colors and node relationships are unchanged. [English translation of the visible records](docs/mountainrs.md#read-the-original-tree).*
+
+## What a fresh window receives
+
+The same project state supports both ongoing discussion and a later handoff. PF3 assembles the context when a window reads it.
+
+| Recorded during the work | Available to the next reader |
+|---|---|
+| Tasks, contracts and progress belong to project nodes. | The current task, its intent and selected recent progress. |
+| Executed attempts keep conclusions; paused work keeps its reason. | Relevant conclusions and references to further node details. |
+| Rules have global or project scope; constraints target nodes. | Applicable rules and pending constraints for the current node. |
+| Writes update versioned state and leave receipts. | Write-back revisions, change references and stale-write rejection. |
+
+The [design notes](docs/design.md) explain how these mechanisms support discussion, execution and review. In the September 18 MountainRS snapshot, no task is active; resuming work first requires the owner's direction.
+
+Read the [actual resume package, including rules and asset locations](docs/mountainrs-resume.en.md) ([original Chinese output](docs/mountainrs-resume.zh-CN.md)). These are Elara's working rules for MountainRS, not PF3's default policies; see their [scope](docs/mountainrs.md#from-the-handoff-to-the-records).
 
 ## Protocol demo
 
@@ -81,10 +92,10 @@ npm run verify
 
 ## Explore the repository
 
-The showcase package is **0.2.13**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
+The showcase package is **0.2.14**; the protocol remains **PF3 Handoff v0.1 draft**. The unchanged schema `$id` remains pinned to `v0.2.1`. See [versioning and examples](protocol/README.md#versions-and-examples) for the distinction between a message and an exchange trace.
 
-- [MountainRS case](docs/mountainrs.md): a real project tree, its original screenshot, English record translations and actual resume output.
-- [Design notes](docs/design.md): five states, route versions, executed attempts, rule scopes and handoff context.
+- [MountainRS case](docs/mountainrs.md): web/local collaboration, the Stage 7.3 prerequisite failure and repair, original interface captures and supporting files.
+- [Design notes](docs/design.md): shared project state for discussion, execution and review; five states, rule scopes and handoff context.
 - [Handoff protocol v0.1 draft](protocol/README.md): read, write, version checks, receipts and conflict recovery.
 - [JSON Schema](protocol/handoff.schema.json), [a standalone message](protocol/examples/state.json) and [an exchange trace](protocol/examples/exchange-trace.json): individual payloads and the sequence between them.
 - [Independent reference implementation](demo/handoff.mjs): a small implementation you can inspect and change.
